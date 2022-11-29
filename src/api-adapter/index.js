@@ -15,10 +15,7 @@ export async function logInUser(email, password) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user: {
-          email,
-          password,
-        },
+        email, password
       }),
     };
     const response = await fetch(`${BASE_URL}/users/login`, options);

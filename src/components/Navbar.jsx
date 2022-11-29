@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Login,
     Register
@@ -9,14 +9,24 @@ const Navbar = (props) => {
     const isLoggedIn = props.isLoggedIn
     const setIsLoggedIn = props.setIsLoggedIn
     const navigate = useNavigate();
+    const [loginMenu, setLoginMenu] = useState(false)
+
+    async function openMenuLogin(){
+      setLoginMenu(true)
+    }
     
+
   return (
     <>
     <div id="navbar">
-        <NavLink to="/login"><button>LOGIN</button></NavLink>
+        <button onClick={openMenuLogin}>LOGIN</button>
         
   </div>
-  <Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
+  <div>
+  {loginMenu ?(<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setLoginMenu={setLoginMenu}/>) 
+  : null}
+
+  </div>
   </>
   );
 };
