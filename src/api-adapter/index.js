@@ -102,7 +102,21 @@ export async function updateCar(post, id, token) {
   return result;
 }
 // remove car for sale
-
+export async function deleteCar(id, token) {
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type":"application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await fetch(
+    `${BASE_URL}/cars/${id}`,
+    options
+  );
+  const result = await response.json();
+  return result
+}
 //////////////////// Cart API Routes ////////////////////
 
 // get logged in users cart
