@@ -68,11 +68,39 @@ export async function getAllCars(){
   }
 }
 // get single car
-
+export async function getSingleCar(id){
+  try {
+    const options = {
+      headers: { "Content-Type":"application/json"}
+    }
+   const response = await fetch (`${BASE_URL}/SingleCar`, options)
+  const result = await response.json()
+  return result
+ } catch (error) {
+  
+ }
+}
 // post a new car for sale
 
 // edit car for sale
-
+export async function updateCar(post, id, token) {
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type":"application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      post,
+    }),
+  };
+  const response = await fetch(
+    `${BASE_URL}/cars/${id}`,
+    options
+  );
+  const result = await response.json();
+  return result;
+}
 // remove car for sale
 
 //////////////////// Cart API Routes ////////////////////
