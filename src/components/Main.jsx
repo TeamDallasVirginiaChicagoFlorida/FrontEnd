@@ -31,7 +31,9 @@ const Main = () => {
     <Router>
     <div id="main">
       <Navbar 
-      isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      isLoggedIn={isLoggedIn} 
+      setIsLoggedIn={setIsLoggedIn}
+      />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/myaccount" element={<MyAccount />} />
