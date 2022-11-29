@@ -53,7 +53,20 @@ export async function userInfo() {
 //////////////////// Car API Routes ////////////////////
 
 // get all cars
+export async function getAllCars(){
+  try {
+    const options = {
+      headers: { "Content-Type":"application/json"}
+    }
+    const response = await fetch (`${BASE_URL}/cars`, options)
+    const cars = await response.json()
 
+    return cars
+    
+  } catch (error) {
+    console.log(error, "AN ERROR HAS OCCURRED FINDING CARS")
+  }
+}
 // get single car
 
 // post a new car for sale
