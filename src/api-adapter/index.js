@@ -2,7 +2,7 @@
 
 // const BASE_URL = "THIS IS WHERE THE DEPLOYED BACKEND URL WILL GO";
 const BASE_URL = "http://localhost:8080/api";
-const token = localStorage.getItem("token")
+const token = localStorage.getItem("token");
 
 //////////////////// User API Routes ////////////////////
 
@@ -15,7 +15,8 @@ export async function logInUser(email, password) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email, password
+        email,
+        password,
       }),
     };
     const response = await fetch(`${BASE_URL}/users/login`, options);
@@ -28,23 +29,25 @@ export async function logInUser(email, password) {
 
 //register
 
-export async function registerUser(email, password, admin){
-    try{
-        const options ={
-            method: "POST",
-            headers:{
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email, password, admin
-            }),
-        };
-        const response =await fetch(`${BASE_URL}/users/register`, options);
-        const result = await response.json();
-        return result;
-    }catch(error){
-        throw(error)
-    }
+export async function registerUser(email, password, admin) {
+  try {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        admin,
+      }),
+    };
+    const response = await fetch(`${BASE_URL}/users/register`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
 }
 // users/me
 
@@ -54,12 +57,12 @@ export async function userInfo() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
     };
     const response = await fetch(`${BASE_URL}/users/me`, options);
     const result = await response.json();
-    return result
+    return result;
   } catch (error) {
     throw error;
   }
@@ -68,35 +71,49 @@ export async function userInfo() {
 //////////////////// Car API Routes ////////////////////
 
 // get all cars
-export async function getAllCars(){
+export async function getAllCars() {
   try {
     const options = {
-      headers: { "Content-Type":"application/json"}
-    }
-    const response = await fetch (`${BASE_URL}/cars`, options)
-    const cars = await response.json()
+      headers: { "Content-Type": "application/json" },
+    };
+    const response = await fetch(`${BASE_URL}/cars`, options);
+    const cars = await response.json();
 
-    return cars
-    
+    return cars;
   } catch (error) {
-    console.log(error, "AN ERROR HAS OCCURRED FINDING CARS")
+    console.log(error, "AN ERROR HAS OCCURRED FINDING CARS");
   }
 }
 // get single car
-export async function getSingleCar(id){
+export async function getSingleCar(id) {
   try {
     const options = {
-      headers: { "Content-Type":"application/json"}
-    }
-   const response = await fetch (`${BASE_URL}/SingleCar`, options)
-  const result = await response.json()
-  return result
- } catch (error) {
-  
- }
+      headers: { "Content-Type": "application/json" },
+    };
+    const response = await fetch(`${BASE_URL}/${id}`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {}
 }
 // post a new car for sale
-export async function createNewCarPost(post, token) {
+export async function createNewCarPost(
+  type,
+  make,
+  model,
+  year,
+  color,
+  price,
+  transmission_type,
+  mileage,
+  interior_color,
+  doors,
+  seats,
+  mpg,
+  inventory,
+  photo_url,
+  drive_type,
+  new_used
+) {
   const options = {
     method: "POST",
     headers: {
@@ -104,7 +121,22 @@ export async function createNewCarPost(post, token) {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      post,
+      type,
+      make,
+      model,
+      year,
+      color,
+      price,
+      transmission_type,
+      mileage,
+      interior_color,
+      doors,
+      seats,
+      mpg,
+      inventory,
+      photo_url,
+      drive_type,
+      new_used,
     }),
   };
   const response = await fetch(`${BASE_URL}/cars`, options);
@@ -112,39 +144,65 @@ export async function createNewCarPost(post, token) {
   return result.data;
 }
 // edit car for sale
-export async function updateCar(post, id, token) {
+export async function updateCar(id, 
+  type,
+  make,
+  model,
+  year,
+  color,
+  price,
+  transmission_type,
+  mileage,
+  interior_color,
+  doors,
+  seats,
+  mpg,
+  inventory,
+  photo_url,
+  drive_type,
+  new_used
+) {
   const options = {
     method: "PATCH",
     headers: {
-      "Content-Type":"application/json",
-      Authorization: `Bearer ${token}`
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      post,
+      type,
+    make,
+    model,
+    year,
+    color,
+    price,
+    transmission_type,
+    mileage,
+    interior_color,
+    doors,
+    seats,
+    mpg,
+    inventory,
+    photo_url,
+    drive_type,
+    new_used,
     }),
   };
-  const response = await fetch(
-    `${BASE_URL}/cars/${id}`,
-    options
-  );
+  const response = await fetch(`${BASE_URL}/cars/${id}`, options);
   const result = await response.json();
   return result;
 }
 // remove car for sale
-export async function deleteCar(id, token) {
+export async function deleteCar(id) {
   const options = {
     method: "DELETE",
     headers: {
-      "Content-Type":"application/json",
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
-  const response = await fetch(
-    `${BASE_URL}/cars/${id}`,
-    options
-  );
+  const response = await fetch(`${BASE_URL}/cars/${id}`, options);
   const result = await response.json();
-  return result
+  return result;
 }
 //////////////////// Cart API Routes ////////////////////
 
