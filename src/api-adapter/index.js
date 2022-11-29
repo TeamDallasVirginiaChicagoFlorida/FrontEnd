@@ -65,13 +65,69 @@ export async function getAllCars(){
   }
 }
 // get single car
-
+export async function getSingleCar(id){
+  try {
+    const options = {
+      headers: { "Content-Type":"application/json"}
+    }
+   const response = await fetch (`${BASE_URL}/SingleCar`, options)
+  const result = await response.json()
+  return result
+ } catch (error) {
+  
+ }
+}
 // post a new car for sale
-
+export async function createNewCarPost(post, token) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post,
+    }),
+  };
+  const response = await fetch(`${BASE_URL}/cars`, options);
+  const result = await response.json();
+  return result.data;
+}
 // edit car for sale
-
+export async function updateCar(post, id, token) {
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type":"application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      post,
+    }),
+  };
+  const response = await fetch(
+    `${BASE_URL}/cars/${id}`,
+    options
+  );
+  const result = await response.json();
+  return result;
+}
 // remove car for sale
-
+export async function deleteCar(id, token) {
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type":"application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await fetch(
+    `${BASE_URL}/cars/${id}`,
+    options
+  );
+  const result = await response.json();
+  return result
+}
 //////////////////// Cart API Routes ////////////////////
 
 // get logged in users cart
