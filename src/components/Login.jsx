@@ -4,6 +4,7 @@ import { logInUser } from "../api-adapter";
 const Login = (props) => {
   const isLoggedIn = props.isLoggedIn
   const setIsLoggedIn = props.setIsLoggedIn
+  const setLoginMenu = props.setLoginMenu
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -11,7 +12,7 @@ const Login = (props) => {
   })
 
   async function closeLoginMenu() {
-    console.log("you tried to close the login menu and it didn't do anything!")
+    setLoginMenu(false)
   }
 
   async function handleSubmit(event) {
