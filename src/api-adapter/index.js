@@ -81,7 +81,21 @@ export async function getSingleCar(id){
  }
 }
 // post a new car for sale
-
+export async function createNewCarPost(post, token) {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      post,
+    }),
+  };
+  const response = await fetch(`${BASE_URL}/cars`, options);
+  const result = await response.json();
+  return result.data;
+}
 // edit car for sale
 export async function updateCar(post, id, token) {
   const options = {
