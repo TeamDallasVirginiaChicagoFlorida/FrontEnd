@@ -5,6 +5,8 @@ const Login = (props) => {
   const isLoggedIn = props.isLoggedIn
   const setIsLoggedIn = props.setIsLoggedIn
   const setLoginMenu = props.setLoginMenu
+  const setError = props.setError
+  const error = props.error
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -13,6 +15,7 @@ const Login = (props) => {
 
   async function closeLoginMenu() {
     setLoginMenu(false)
+    setError(null)
   }
 
   async function handleSubmit(event) {
@@ -26,7 +29,7 @@ const Login = (props) => {
       localStorage.setItem("token", response.token);
       setIsLoggedIn(response.token);
     } else {
-      console.log("Error handling go here")
+      setError("User with that email not found or password does not match")
     }
 
     setLoginInfo({
@@ -69,7 +72,7 @@ const Login = (props) => {
             value={loginInfo.password}
             required
           />
-          {/* {error ? <small className="error">{error}</small> : null} */}
+          {error ? <small className="error">{error}</small> : null}
 
           <br />
           <button className="submitButton" type="submit">
