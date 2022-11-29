@@ -10,6 +10,7 @@ const Navbar = (props) => {
     const setIsLoggedIn = props.setIsLoggedIn
     const navigate = useNavigate();
     const [loginMenu, setLoginMenu] = useState(false)
+    const [error, setError] = useState(null)
 
     async function openMenuLogin(){
       setLoginMenu(true)
@@ -23,7 +24,7 @@ const Navbar = (props) => {
         
   </div>
   <div>
-  {loginMenu ?(<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setLoginMenu={setLoginMenu}/>) 
+  {loginMenu ?(<Login setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} setLoginMenu={setLoginMenu} error={error} setError={setError}/>) 
   : null}
 
   </div>
