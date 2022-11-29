@@ -28,6 +28,24 @@ export async function logInUser(email, password) {
 
 //register
 
+export async function registerUser(email, password, admin){
+    try{
+        const options ={
+            method: "POST",
+            headers:{
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email, password, admin
+            }),
+        };
+        const response =await fetch(`${BASE_URL}/users/register`, options);
+        const result = await response.json();
+        return result;
+    }catch(error){
+        throw(error)
+    }
+}
 // users/me
 
 export async function userInfo() {
