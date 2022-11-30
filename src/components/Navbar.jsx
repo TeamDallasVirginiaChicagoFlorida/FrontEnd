@@ -20,32 +20,31 @@ const Navbar = (props) => {
 
   async function logout() {
     console.log("YOU CLICKED LOGOUT AND IT DID NOTHING");
-    localStorage.removeItem("token")
-    setIsLoggedIn(false)
-    navigate("/")
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    navigate("/");
   }
 
   return (
     <>
       <div id="navbar">
         <h1>HOT CARS</h1>
-        {isLoggedIn ? (
-          <div>
-            <button onClick={logout}>LOGOUT</button>
-            <NavLink to="/myaccount">
-              <button>MY ACCOUNT</button>
-            </NavLink>
-          </div>
-        ) : (
-          <div>
-            <button onClick={openMenuLogin}>LOGIN</button>
-            <button onClick={openRegisterMenu}>REGISTER</button>
-          </div>
-        )}
-
-        <NavLink to="/cart">
-          <button>CART</button>
-        </NavLink>
+        <div id="navbuttons">
+          <NavLink to="/cart">
+            <button>CART</button>
+          </NavLink>
+          {isLoggedIn?<NavLink to="/myaccount">
+                <button>MY ACCOUNT</button>
+              </NavLink>:null}
+          {isLoggedIn ? (
+              <button onClick={logout}>LOGOUT</button>
+          ) : (
+            <div>
+              <button onClick={openMenuLogin}>LOGIN</button>
+              <button onClick={openRegisterMenu}>REGISTER</button>
+            </div>
+          )}
+        </div>
       </div>
       <div>
         {loginMenu ? (

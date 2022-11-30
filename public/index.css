@@ -1,0 +1,48 @@
+
+
+/* ***Navbar*** */
+
+#navbar {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbuttons {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* ***Login/Register Menus*** */
+
+#login, #register {
+    z-index: 1;
+    display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.popupMenu {
+    background-color: #0F0F0F;
+    color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popupMenu form{
+    display: flex;
+    flex-direction: column;
+}
+
+.x {
+    align-self: flex-end;
+}

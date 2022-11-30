@@ -44,9 +44,9 @@ const Register = (props) => {
   return (
     <div id="register">
       <div className={`registering`} id="registerMenu">
-        <div className="registerMenu">
+        <div className="popupMenu">
           <span
-            className="material-symbols-outlined"
+            className="material-symbols-outlined x"
             onClick={closeRegisterMenu}
             alt="Close Menu"
           >
@@ -54,7 +54,7 @@ const Register = (props) => {
           </span>
           <form onSubmit={handleSubmit}>
             <h3>Register</h3>
-            <label htmlFor="email">Email: </label>
+            <div><label htmlFor="email">Email: </label>
             <input
               id="email"
               type="email"
@@ -63,9 +63,9 @@ const Register = (props) => {
               }
               value={registerInfo.email}
               required
-            />
+            /></div>
             <br />
-            <label htmlFor="password">Password: </label>
+            <div><label htmlFor="password">Password: </label>
             <input
               id="password"
               type="password"
@@ -74,8 +74,9 @@ const Register = (props) => {
               }
               value={registerInfo.password}
               required
-            />
-            <label htmlFor="account_type">Account Type: </label>
+            /></div>
+            <br/>
+            <div><label htmlFor="account_type">Account Type: </label>
             <select
               id="account_type"
               onChange={(e) =>
@@ -84,7 +85,7 @@ const Register = (props) => {
             >
               <option value="false">Buyer</option>
               <option value="true">Seller</option>
-            </select>
+            </select></div>
             {error ? <small className="error">{error}</small> : null}
 
             <br />

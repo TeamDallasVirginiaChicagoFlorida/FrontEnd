@@ -42,9 +42,9 @@ const Login = (props) => {
   return (
     <div id="login">
       <div className={`loggingin`} id="loginMenu">
-        <div className="loginMenu">
+        <div className="popupMenu">
           <span
-            className="material-symbols-outlined"
+            className="material-symbols-outlined x"
             onClick={closeLoginMenu}
             alt="Close Menu"
           >
@@ -52,6 +52,7 @@ const Login = (props) => {
           </span>
           <form onSubmit={handleSubmit}>
             <h3>Login</h3>
+            <div>
             <label htmlFor="email">Email: </label>
             <input
               id="email"
@@ -61,9 +62,9 @@ const Login = (props) => {
               }
               value={loginInfo.email}
               required
-            />
+            /></div>
             <br />
-            <label htmlFor="password">Password: </label>
+            <div><label htmlFor="password">Password: </label>
             <input
               id="password"
               type="password"
@@ -72,7 +73,7 @@ const Login = (props) => {
               }
               value={loginInfo.password}
               required
-            />
+            /></div>
             {error ? <small className="error">{error}</small> : null}
 
             <br />
