@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { getSingleCar } from "../api-adapter";
 
 const SingleCarDetails = (props) => {
@@ -57,8 +57,10 @@ const SingleCarDetails = (props) => {
     <div id="singleCarDetails">
   {singleCar ? (<>
     <div className="box">
-     <h3>{singleCar.make} {singleCar.model} {singleCar.year}  </h3>
+     <h3 className="carTitle">{singleCar.make} {singleCar.model} {singleCar.year}  </h3>
      <img src = {singleCar.photo_url} />
+     <div className="boxDetails">
+      <div className="carInfo">
      <div>{singleCar.type} </div>
      <div>Color: {singleCar.color} </div>
      <div> $ {singleCar.price} </div>
@@ -68,11 +70,10 @@ const SingleCarDetails = (props) => {
      <div>Doors: {singleCar.doors} </div>
      <div>Seats: {singleCar.seats} </div>
      <div>MPG: {singleCar.mpg} </div>
-    
      <div>Drive Type: {singleCar.drive_type} </div>
-     <div>Condition: {singleCar.new_used} </div>
+     <div>Condition: {singleCar.new_used} </div></div></div>
     </div>
-    
+    <Link to={`/`}><button cla> Go Back to All Cars</button></Link>
     </>
     ):(
       <div> loading the cars... </div>
