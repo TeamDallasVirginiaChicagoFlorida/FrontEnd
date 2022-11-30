@@ -81,7 +81,7 @@ export async function getAllCars() {
 
     return cars;
   } catch (error) {
-    console.log(error, "AN ERROR HAS OCCURRED FINDING CARS");
+    throw error;
   }
 }
 // get single car
@@ -93,7 +93,9 @@ export async function getSingleCar(id) {
     const response = await fetch(`${BASE_URL}/${id}`, options);
     const result = await response.json();
     return result;
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 }
 // post a new car for sale
 export async function createNewCarPost(
@@ -114,37 +116,42 @@ export async function createNewCarPost(
   drive_type,
   new_used
 ) {
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      type,
-      make,
-      model,
-      year,
-      color,
-      price,
-      transmission_type,
-      mileage,
-      interior_color,
-      doors,
-      seats,
-      mpg,
-      inventory,
-      photo_url,
-      drive_type,
-      new_used,
-    }),
-  };
-  const response = await fetch(`${BASE_URL}/cars`, options);
-  const result = await response.json();
-  return result.data;
+  try {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        type,
+        make,
+        model,
+        year,
+        color,
+        price,
+        transmission_type,
+        mileage,
+        interior_color,
+        doors,
+        seats,
+        mpg,
+        inventory,
+        photo_url,
+        drive_type,
+        new_used,
+      }),
+    };
+    const response = await fetch(`${BASE_URL}/cars`, options);
+    const result = await response.json();
+    return result.data;
+  } catch (error) {
+    throw error;
+  }
 }
 // edit car for sale
-export async function updateCar(id, 
+export async function updateCar(
+  id,
   type,
   make,
   model,
@@ -162,51 +169,76 @@ export async function updateCar(id,
   drive_type,
   new_used
 ) {
-  const options = {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      type,
-    make,
-    model,
-    year,
-    color,
-    price,
-    transmission_type,
-    mileage,
-    interior_color,
-    doors,
-    seats,
-    mpg,
-    inventory,
-    photo_url,
-    drive_type,
-    new_used,
-    }),
-  };
-  const response = await fetch(`${BASE_URL}/cars/${id}`, options);
-  const result = await response.json();
-  return result;
+  try {
+    const options = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        type,
+        make,
+        model,
+        year,
+        color,
+        price,
+        transmission_type,
+        mileage,
+        interior_color,
+        doors,
+        seats,
+        mpg,
+        inventory,
+        photo_url,
+        drive_type,
+        new_used,
+      }),
+    };
+    const response = await fetch(`${BASE_URL}/cars/${id}`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
 }
 // remove car for sale
 export async function deleteCar(id) {
-  const options = {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  };
-  const response = await fetch(`${BASE_URL}/cars/${id}`, options);
-  const result = await response.json();
-  return result;
+  try {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(`${BASE_URL}/cars/${id}`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
 }
 //////////////////// Cart API Routes ////////////////////
 
 // get logged in users cart
+
+export async function getCartByUser() {
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await fetch(`${BASE_URL}/cart`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
 
 // checkout a cart
 
