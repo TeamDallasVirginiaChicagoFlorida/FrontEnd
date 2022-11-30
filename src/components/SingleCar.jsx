@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const SingleCar = (props) => {
   const car = props.car;
@@ -12,6 +12,7 @@ const SingleCar = (props) => {
         <div>{car.model}</div>
         <div>{car.year}</div>
         <div>{car.price}</div>
+        <Link to={`/carDetails/${car.id}`}><button> See More Details</button></Link>
        
 
   </div>
