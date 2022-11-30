@@ -27,6 +27,7 @@ const Login = (props) => {
     if (response && response.token) {
       localStorage.setItem("token", response.token);
       setIsLoggedIn(response.token);
+      setLoginMenu(false);
       setError(null);
     } else {
       setError("User with that email not found or password does not match");
