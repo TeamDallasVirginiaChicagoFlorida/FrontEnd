@@ -1,16 +1,49 @@
 import React, { useState } from "react";
-import registerUser from "../api-adapter"
+import {registerUser} from "../api-adapter";
 
 const Register = (props) => {
-  const setIsLoggedIn = props.setIsLoggedIn
-  const setRegisterMenu = props.setRegisterMenu
-  const setError = props.setError
-  const error = props.error
+  const setIsLoggedIn = props.setIsLoggedIn;
+  const setRegisterMenu = props.setRegisterMenu;
+  const setError = props.setError;
+  const error = props.error;
   const [registerInfo, setRegisterInfo] = useState({
     email: "",
     password: "",
-    admin: false
-  })
+    admin: false,
+  });
+
+  async function closeRegisterMenu() {
+    setRegisterMenu(false);
+    setError(null);
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const email = registerInfo.email;
+    const password = registerInfo.password;
+    const admin = registerInfo.admin;
+    if (password.length < 8) {
+      const response = await registerUser(email, password, admin);
+
+      localStorage.removeItem("token");
+      if (response && response.token) {
+        localStorage.setItem("token", response.token);
+        setIsLoggedIn(response.token);
+        setRegisterMenu(false);
+        setError(null);
+      } else {
+        setIsLoggedIn(false);
+        setError("User already exists");
+      }
+    } else {
+      setError("Password must be at least 8 characters long");
+    }
+    setRegisterInfo({
+      email: "",
+      password: "",
+      admin: false,
+    });
+  }
 
   return (
     <div id="register">
@@ -24,7 +57,7 @@ const Register = (props) => {
             close
           </span>
           <form onSubmit={handleSubmit}>
-            <h3>register</h3>
+            <h3>Register</h3>
             <label htmlFor="email">Email: </label>
             <input
               id="email"
@@ -46,6 +79,16 @@ const Register = (props) => {
               value={registerInfo.password}
               required
             />
+            <label htmlFor="account_type">Account Type: </label>
+            <select
+              id="account_type"
+              onChange={(e) =>
+                setRegisterInfo({ ...registerInfo, admin: e.target.value })
+              }
+            >
+              <option value="false">Buyer</option>
+              <option value="true">Seller</option>
+            </select>
             {error ? <small className="error">{error}</small> : null}
 
             <br />
@@ -57,10 +100,6 @@ const Register = (props) => {
       </div>
     </div>
   );
-
-
-  
-
 };
 
 export default Register;
