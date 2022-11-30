@@ -5,7 +5,8 @@ import {
     MyAccount,
     Cart,
     SingleCarDetails,
-    Footer, 
+    Footer,
+    AllCars, 
 } from './'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { userInfo } from "../api-adapter";
