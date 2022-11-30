@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {registerUser} from "../api-adapter";
+import { registerUser } from "../api-adapter";
 
 const Register = (props) => {
   const setIsLoggedIn = props.setIsLoggedIn;
@@ -22,21 +22,17 @@ const Register = (props) => {
     const email = registerInfo.email;
     const password = registerInfo.password;
     const admin = registerInfo.admin;
-    if (password.length < 8) {
-      const response = await registerUser(email, password, admin);
+    const response = await registerUser(email, password, admin);
 
-      localStorage.removeItem("token");
-      if (response && response.token) {
-        localStorage.setItem("token", response.token);
-        setIsLoggedIn(response.token);
-        setRegisterMenu(false);
-        setError(null);
-      } else {
-        setIsLoggedIn(false);
-        setError("User already exists");
-      }
+    localStorage.removeItem("token");
+    if (response && response.token) {
+      localStorage.setItem("token", response.token);
+      setIsLoggedIn(response.token);
+      setRegisterMenu(false);
+      setError(null);
     } else {
-      setError("Password must be at least 8 characters long");
+      setIsLoggedIn(false);
+      setError(response.message);
     }
     setRegisterInfo({
       email: "",
