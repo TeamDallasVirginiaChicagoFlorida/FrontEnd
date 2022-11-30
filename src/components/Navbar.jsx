@@ -19,7 +19,6 @@ const Navbar = (props) => {
   }
 
   async function logout() {
-    console.log("YOU CLICKED LOGOUT AND IT DID NOTHING");
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     navigate("/");

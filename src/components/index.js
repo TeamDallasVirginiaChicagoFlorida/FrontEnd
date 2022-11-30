@@ -3,6 +3,7 @@
 export {default as Main} from './Main'
 export {default as AdminAddCar} from './AdminAddCar'
 export {default as AllCars} from './AllCars'
+export {default as Cart_SingleCar} from './Cart_SingleCar'
 export {default as Cart} from './Cart'
 export {default as FiltersMenu} from './FiltersMenu'
 export {default as Footer} from './Footer'
