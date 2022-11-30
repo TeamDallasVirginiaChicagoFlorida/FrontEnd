@@ -6,6 +6,7 @@ const Login = (props) => {
   const setLoginMenu = props.setLoginMenu;
   const setError = props.setError;
   const error = props.error;
+  const setRegisterMenu = props.setRegisterMenu;
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -37,6 +38,10 @@ const Login = (props) => {
       email: "",
       password: "",
     });
+  }
+  async function changeMenu(){
+    setLoginMenu(false);
+    setRegisterMenu(true);
   }
 
   return (
@@ -79,6 +84,7 @@ const Login = (props) => {
             <button className="submitButton" type="submit">
               SUBMIT
             </button>
+            <button onClick={changeMenu}>Don't have an account? Click here</button>
           </form>
         </div>
       </div>

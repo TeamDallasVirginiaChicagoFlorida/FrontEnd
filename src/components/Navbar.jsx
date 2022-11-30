@@ -52,6 +52,7 @@ const Navbar = (props) => {
           <Login
             setIsLoggedIn={setIsLoggedIn}
             setLoginMenu={setLoginMenu}
+            setRegisterMenu={setRegisterMenu}
             error={error}
             setError={setError}
           />
