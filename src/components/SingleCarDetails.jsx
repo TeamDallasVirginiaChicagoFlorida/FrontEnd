@@ -73,7 +73,7 @@ const SingleCarDetails = (props) => {
      <div>Drive Type: {singleCar.drive_type} </div>
      <div>Condition: {singleCar.new_used} </div></div></div>
     </div>
-    <Link to={`/`}><button cla> Go Back to All Cars</button></Link>
+    <Link to={`/`}><button className="goBackButton"> Go Back to All Cars</button></Link>
     </>
     ):(
       <div> loading the cars... </div>
