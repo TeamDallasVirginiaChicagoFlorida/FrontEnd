@@ -46,3 +46,40 @@
 .x {
     align-self: flex-end;
 }
+
+/* this is for singleCarDetails */
+
+.box {
+    margin: 10px;
+    align-items: center;
+}
+
+img {
+    border: 2px solid black;
+    width:500px ;
+    height: 300px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+.carTitle {
+    background-color: silver;
+    
+
+
+}
+
+.boxDetails {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 2px;
+    
+}
+
+.goBackButton {
+    margin: 10px;
+}
+
+.carInfo {
+    margin: 5px;
+}
