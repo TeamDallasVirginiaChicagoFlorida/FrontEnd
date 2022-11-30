@@ -1,72 +1,76 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getSingleCar } from "../api-adapter";
 
 const SingleCarDetails = (props) => {
   const {id} = useParams();
-  const car = props.filterCars(id)[0]
-  const navigate = useNavigate();
-  const [carDetails, setCarDetails] = useState({
-        type: '',
-        make: '',
-        model: '',
-        year: '',
-        color: '',
-        price: '',
-        transmission_type: '',
-        mileage: '',
-        interior_color: '',
-        doors: '',
-        seats: '',
-        mpg: '',
-        inventory: '',
-        photo_url: '',
-        drive_type: '',
-        new_used: '',
-  })
+  const [singleCar, setSingleCar] = useState([])
   useEffect(()=>{
-    car?
-    setCarDetails(
-      {        
-      type: car.type,
-      make: car.make,
-      model: car.model,
-      year: car.year,
-      color: car.color,
-      price: car.price,
-      transmission_type: car.transmission_type,
-      mileage: car.mileage,
-      interior_color: car.interior_color,
-      doors: car.doors,
-      seats: car.seats,
-      mpg: car.mpg,
-      inventory: car.inventory,
-      photo_url: car.photo_url,
-      drive_type: car.drive_type,
-      new_used: car.new_used,}
-    ): null
-  }, [car])
+    const fetchData = async()=>{
+      const data = await getSingleCar(id)
+      setSingleCar(data)
+    }
+    fetchData()
+  },[])
+  const navigate = useNavigate();
+  // const [carDetails, setCarDetails] = useState({
+  //       type: '',
+  //       make: '',
+  //       model: '',
+  //       year: '',
+  //       color: '',
+  //       price: '',
+  //       transmission_type: '',
+  //       mileage: '',
+  //       interior_color: '',
+  //       doors: '',
+  //       seats: '',
+  //       mpg: '',
+  //       inventory: '',
+  //       photo_url: '',
+  //       drive_type: '',
+  //       new_used: '',
+  // })
+  // useEffect(()=>{
+  //   car?
+  //   setCarDetails(
+  //     {        
+  //     type: car.type,
+  //     make: car.make,
+  //     model: car.model,
+  //     year: car.year,
+  //     color: car.color,
+  //     price: car.price,
+  //     transmission_type: car.transmission_type,
+  //     mileage: car.mileage,
+  //     interior_color: car.interior_color,
+  //     doors: car.doors,
+  //     seats: car.seats,
+  //     mpg: car.mpg,
+  //     inventory: car.inventory,
+  //     photo_url: car.photo_url,
+  //     drive_type: car.drive_type,
+  //     new_used: car.new_used,}
+  //   ): null
+  // }, [car])
   return (
     <div id="singleCarDetails">
-        <h2>This is the SingleCarDetails component, the page where we show more info about a single car</h2>
-  {car ? (<>
+  {singleCar ? (<>
     <div className="box">
-     <div>{car.seller} </div>
-     <div>{car.type} </div>
-     <div>{car.make} </div>
-     <div>{car.model} </div>
-     <div>{car.year} </div>
-     <div>{car.color} </div>
-     <div>{car.price} </div>
-     <div>{car.transmission_type} </div>
-     <div>{car.mileage} </div>
-     <div>{car.interior_color} </div>
-     <div>{car.doors} </div>
-     <div>{car.seats} </div>
-     <div>{car.mpg} </div>
-     <div>{car.inventory} </div>
-     <div>{car.photo_url} </div>
-     <div>{car.drive_type} </div>
-     <div>{car.new_used} </div>
+     <h3>{singleCar.make} {singleCar.model} {singleCar.year}  </h3>
+     <img src = {singleCar.photo_url} />
+     <div>{singleCar.type} </div>
+     <div>Color: {singleCar.color} </div>
+     <div> $ {singleCar.price} </div>
+     <div>Transmission: {singleCar.transmission_type} </div>
+     <div>Mileage: {singleCar.mileage} </div>
+     <div>Interior Color: {singleCar.interior_color} </div>
+     <div>Doors: {singleCar.doors} </div>
+     <div>Seats: {singleCar.seats} </div>
+     <div>MPG: {singleCar.mpg} </div>
+    
+     <div>Drive Type: {singleCar.drive_type} </div>
+     <div>Condition: {singleCar.new_used} </div>
     </div>
     
     </>

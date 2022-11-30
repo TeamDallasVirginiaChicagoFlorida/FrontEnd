@@ -90,7 +90,7 @@ export async function getSingleCar(id) {
     const options = {
       headers: { "Content-Type": "application/json" },
     };
-    const response = await fetch(`${BASE_URL}/${id}`, options);
+    const response = await fetch(`${BASE_URL}/cars/${id}`, options);
     const result = await response.json();
     return result;
   } catch (error) {}

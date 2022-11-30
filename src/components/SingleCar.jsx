@@ -6,12 +6,9 @@ const SingleCar = (props) => {
   
   return (
     <div id="singleCar">
-        <h2>This is the SingleCar component, used to render on the all cars page from the map, each single car should contain some sort of button or navlink to single car details</h2>
-        <div>{car.photo_url}</div>
-        <div>{car.make}</div>
-        <div>{car.model}</div>
-        <div>{car.year}</div>
-        <div>{car.price}</div>
+        <h2>{car.make} {car.year} {car.model}</h2>
+        <img src = {car.photo_url}/>
+        <h3>${car.price}</h3>
         <Link to={`/carDetails/${car.id}`}><button> See More Details</button></Link>
        
 

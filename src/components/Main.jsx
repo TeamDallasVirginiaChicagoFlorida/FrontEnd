@@ -39,7 +39,7 @@ const Main = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/myaccount" element={<MyAccount />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/cardetails" element={<SingleCarDetails />} />
+        <Route path="/cardetails/:id" element={<SingleCarDetails />} />
       </Routes>
       <Footer />
     </div>
