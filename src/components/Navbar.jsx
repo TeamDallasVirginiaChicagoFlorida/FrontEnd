@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Login, Register } from "./";
 import { useNavigate, NavLink } from "react-router-dom";
 
+
 const Navbar = (props) => {
   const isLoggedIn = props.isLoggedIn;
   const setIsLoggedIn = props.setIsLoggedIn;
@@ -28,7 +29,7 @@ const Navbar = (props) => {
     <>
       <div id="navbar">
         <NavLink to="/">
-        <h1>HOT CARS</h1></NavLink>
+        <img id="logo" src={require("./images/SMALL COPY OF LOGO.png")}/></NavLink>
         <div id="navbuttons">
           <NavLink to="/cart">
             <button>CART</button>

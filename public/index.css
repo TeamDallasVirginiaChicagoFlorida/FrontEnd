@@ -14,6 +14,19 @@
     flex-direction: row;
 }
 
+#logo {
+    border: none;
+    width: 200px;
+    height: 100%;
+    margin: px;
+    padding: 0;
+
+}
+
+#logo:hover {
+    transform: scale(1.1);
+}
+
 
 /* ***Login/Register Menus*** */
 
@@ -83,3 +96,4 @@ img {
 .carInfo {
     margin: 5px;
 }
+
