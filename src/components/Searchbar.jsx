@@ -1,7 +1,7 @@
-// import React, { useState, useEffect } from "react";
-// import { getAllCars } from "../api-adapter";
+import React, { useState, useEffect } from "react";
+import { getAllCars } from "../api-adapter";
 
-// const SearchBar = () => {
+const SearchBar = () => {
 //   const [vehicles, setVehicles] = useState([]);
 //   const [searchTerm, setSearchTerm] = useState("");
 
@@ -52,6 +52,6 @@
 //     </div>
    
 //   );
-// };
+};
 
-// export default SearchBar;
+export default SearchBar;

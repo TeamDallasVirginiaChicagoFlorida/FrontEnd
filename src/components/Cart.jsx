@@ -1,26 +1,35 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { getCartByUser } from "../api-adapter";
-import {Cart_SingleCar} from "./"
+import { Cart_SingleCar } from "./";
 
-const Cart = () => {
-  const [usersCart, setUsersCart] = useState([])
+const Cart = (props) => {
+  const [activeCartCars, setActiveCartCars] = useState([])
+  const isLoggedIn = props.isLoggedIn
 
-  useEffect(()=>{
-    const fetchData = async()=>{
-      const data = await getCartByUser()
-      setUsersCart(data)
-    }
-    fetchData()
-  }, [])
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getCartByUser();
+        const activeCart = data[0].cars;
+  setActiveCartCars(activeCart)
+    };
+    fetchData();
+  }, [isLoggedIn]);
 
-  console.log(usersCart)
+ let total = 0
 
   return (
     <div id="cart">
-        {usersCart[0].cars.map((item)=>{
-        return <Cart_SingleCar key = {item.id} item={item}/>
-      })}
-  </div>
+      <h1>Your Cart:</h1>
+      {activeCartCars 
+        ? activeCartCars.map((item) => {
+            return <Cart_SingleCar key={item.id} item={item} />;
+          })
+        : null}
+        <h3>Total Price: {
+          activeCartCars.map((item)=>{
+            total += item.price
+          })}${parseInt(total, 10)}</h3>
+    </div>
   );
 };
 

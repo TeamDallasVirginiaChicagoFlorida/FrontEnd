@@ -2,7 +2,6 @@
 
 // const BASE_URL = "THIS IS WHERE THE DEPLOYED BACKEND URL WILL GO";
 const BASE_URL = "http://localhost:8080/api";
-const token = localStorage.getItem("token");
 
 //////////////////// User API Routes ////////////////////
 
@@ -57,7 +56,7 @@ export async function userInfo() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     };
     const response = await fetch(`${BASE_URL}/users/me`, options);
@@ -121,7 +120,7 @@ export async function createNewCarPost(
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         type,
@@ -174,7 +173,7 @@ export async function updateCar(
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({
         type,
@@ -209,7 +208,7 @@ export async function deleteCar(id) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     };
     const response = await fetch(`${BASE_URL}/cars/${id}`, options);
@@ -229,7 +228,7 @@ export async function getCartByUser() {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     };
     const response = await fetch(`${BASE_URL}/cart`, options);
