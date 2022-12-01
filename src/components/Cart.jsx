@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { checkOut, getCartByUser } from "../api-adapter";
 import { Cart_SingleCar } from "./";
+import { useNavigate } from "react-router-dom";
 
 const Cart = (props) => {
   const [activeCartCars, setActiveCartCars] = useState([])
   const [currentId, setCurrentId] = useState()
   const isLoggedIn = props.isLoggedIn
+
+const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +25,7 @@ const Cart = (props) => {
 
  async function finishedSale(){
   await checkOut(currentId)
+  navigate("/myaccount")
  }
   return (
     <div id="cart">
