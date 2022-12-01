@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { addCarToCart, getCartByUser } from "../api-adapter";
-
 
 const SingleCar = (props) => {
   const car = props.car;
   const isLoggedIn = props.isLoggedIn;
-  const [currentId, setCurrentId] = useState()
+  const [currentId, setCurrentId] = useState();
   useEffect(() => {
     const fetchData = async () => {
       const data = await getCartByUser();
@@ -16,12 +15,9 @@ const SingleCar = (props) => {
     fetchData();
   }, []);
 
-
   async function addCar() {
-    await addCarToCart(car.id, currentId)
-    console.log("you added a car, congrats!")
+    await addCarToCart(car.id, currentId);
   }
-
 
   return (
     <div id="singleCar">
