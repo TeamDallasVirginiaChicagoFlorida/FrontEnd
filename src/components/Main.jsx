@@ -37,7 +37,7 @@ const Main = () => {
       />
       <Routes>
         <Route path="/" element={<HomePage isLoggedIn={isLoggedIn}/>} />
-        <Route path="/myaccount" element={<MyAccount />} />
+        <Route path="/myaccount" element={<MyAccount user={user}/>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cardetails/:id" element={<SingleCarDetails />} />
       </Routes>
