@@ -41,7 +41,6 @@ const Main = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/cardetails/:id" element={<SingleCarDetails />} />
       </Routes>
-      <Footer />
     </div>
     </Router>
   );

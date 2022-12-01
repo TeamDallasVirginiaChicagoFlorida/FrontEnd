@@ -12,7 +12,6 @@ const AllCars = (props) => {
       {allCars.map((car)=>{
         return <SingleCar key = {car.id} car={car} isLoggedIn={isLoggedIn}/>
       })}
-        <h2>This is the AllCars component, should be the parent component to single car</h2>
   </div>
   );
 };

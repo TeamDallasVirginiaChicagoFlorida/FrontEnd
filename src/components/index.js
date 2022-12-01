@@ -1,12 +1,11 @@
 // IMPORT/EXPORT LIBRARY //
 
 export {default as Main} from './Main'
-export {default as AdminAddCar} from './AdminAddCar'
+export {default as Admin} from './Admin'
 export {default as AllCars} from './AllCars'
 export {default as Cart_SingleCar} from './Cart_SingleCar'
 export {default as Cart} from './Cart'
 export {default as FiltersMenu} from './FiltersMenu'
-export {default as Footer} from './Footer'
 export {default as HomePage} from './HomePage'
 export {default as Login} from './Login'
 export {default as MyAccount} from './MyAccount'

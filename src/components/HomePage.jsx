@@ -25,7 +25,6 @@ const HomePage = (props) => {
   },[])
   return (
     <div id="homePage">
-        <h2>This is the homepage component, it should be the parent component for the all cars list, the filter, the searchbar</h2>
         <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} setFilteredCars={setFilteredCars} />
         <AllCars allCars = {allCars} isLoggedIn={isLoggedIn}/>
         <FiltersMenu />

@@ -16,6 +16,7 @@ fetchData();
 
   return (
     <div id="orderHistory">
+      <h1>Order History:</h1>
       {pastOrders ? pastOrders.map((element)=>{
         return(
           <div key={element.id}>Order Number: {element.id} 
@@ -26,7 +27,6 @@ fetchData();
           })}</div>)
       }): null}
 
-        <h2>This is the OrderHistory component</h2>
   </div>
   );
 };
