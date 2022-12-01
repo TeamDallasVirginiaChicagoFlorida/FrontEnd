@@ -27,7 +27,8 @@ const Navbar = (props) => {
   return (
     <>
       <div id="navbar">
-        <h1>HOT CARS</h1>
+        <NavLink to="/">
+        <h1>HOT CARS</h1></NavLink>
         <div id="navbuttons">
           <NavLink to="/cart">
             <button>CART</button>
