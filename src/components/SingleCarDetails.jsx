@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { getSingleCar } from "../api-adapter";
+import { getSingleCar, getCartByUser, addCarToCart } from "../api-adapter";
 
 const SingleCarDetails = (props) => {
   const {id} = useParams();
-  const [singleCar, setSingleCar] = useState([])
+  const [singleCar, setSingleCar] = useState([]);
+  const [currentId, setCurrentId] = useState();
   useEffect(()=>{
     const fetchData = async()=>{
       const data = await getSingleCar(id)
@@ -12,6 +13,14 @@ const SingleCarDetails = (props) => {
     }
     fetchData()
   },[])
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getCartByUser();
+      const id = data[0].id;
+      setCurrentId(id);
+    };
+    fetchData();
+  }, []);
   const navigate = useNavigate();
   // const [carDetails, setCarDetails] = useState({
   //       type: '',
@@ -53,6 +62,13 @@ const SingleCarDetails = (props) => {
   //     new_used: car.new_used,}
   //   ): null
   // }, [car])
+  async function addCar() {
+    await addCarToCart(singleCar.id, currentId)
+    navigate('/cart')
+    console.log("you added a car, congrats!")
+  }
+
+
   return (
     <div id="singleCarDetails">
   {singleCar ? (<>
@@ -73,6 +89,7 @@ const SingleCarDetails = (props) => {
      <div>Drive Type: {singleCar.drive_type} </div>
      <div>Condition: {singleCar.new_used} </div></div></div>
     </div>
+    <button onClick={addCar}>Add To Cart</button>
     <Link to={`/`}><button className="goBackButton"> Go Back to All Cars</button></Link>
     </>
     ):(
