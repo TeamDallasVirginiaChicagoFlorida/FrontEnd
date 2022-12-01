@@ -241,6 +241,22 @@ export async function getCartByUser() {
 
 // checkout a cart
 
+export async function checkOut(id){
+  try {
+    const options={
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    const response = await fetch(`${BASE_URL}/cart/${id}`, options);
+    const result = await response.json();
+    return result
+  } catch (error) {
+    throw error;
+  }
+}
+
 // get order history
 
 //////////////////// Cart Items API Routes ////////////////////

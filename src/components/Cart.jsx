@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { getCartByUser } from "../api-adapter";
+import { checkOut, getCartByUser } from "../api-adapter";
 import { Cart_SingleCar } from "./";
 
 const Cart = (props) => {
   const [activeCartCars, setActiveCartCars] = useState([])
+  const [currentId, setCurrentId] = useState()
   const isLoggedIn = props.isLoggedIn
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getCartByUser();
         const activeCart = data[0].cars;
+        const id= data[0].id
+        setCurrentId(id)
   setActiveCartCars(activeCart)
     };
     fetchData();
@@ -17,6 +20,9 @@ const Cart = (props) => {
 
  let total = 0
 
+ async function finishedSale(){
+  await checkOut(currentId)
+ }
   return (
     <div id="cart">
       <h1>Your Cart:</h1>
@@ -29,6 +35,7 @@ const Cart = (props) => {
           activeCartCars.map((item)=>{
             total += item.price
           })}${parseInt(total, 10)}</h3>
+        <button onClick={finishedSale}>Check Out</button>  
     </div>
   );
 };
