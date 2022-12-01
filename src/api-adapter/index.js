@@ -258,7 +258,22 @@ export async function checkOut(id) {
 }
 
 // get order history
-
+export async function orderHistory() {
+  try {
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      }
+    }
+    const response = await fetch (`${BASE_URL}/cart/orderhistory`, options)
+const result = await response.json();
+return result;
+  } catch (error) {
+    throw error;
+  }
+}
 //////////////////// Cart Items API Routes ////////////////////
 
 // add car to cart
