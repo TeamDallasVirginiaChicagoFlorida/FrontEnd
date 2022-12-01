@@ -36,7 +36,7 @@ const Main = () => {
       setIsLoggedIn={setIsLoggedIn}
       />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn}/>} />
         <Route path="/myaccount" element={<MyAccount />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cardetails/:id" element={<SingleCarDetails />} />

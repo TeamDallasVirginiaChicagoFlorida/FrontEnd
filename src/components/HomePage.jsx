@@ -9,7 +9,9 @@ import {
 const HomePage = (props) => {
   const [allCars, setAllCars]= useState([])
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredCars, setFilteredCars] = useState([])
+  const [filteredCars, setFilteredCars] = useState([]);
+  const { isLoggedIn } = props.isLoggedIn
+
   useEffect(()=>{
     const fetchData = async()=>{
       const data = await getAllCars()
@@ -25,7 +27,7 @@ const HomePage = (props) => {
     <div id="homePage">
         <h2>This is the homepage component, it should be the parent component for the all cars list, the filter, the searchbar</h2>
         <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} setFilteredCars={setFilteredCars} />
-        <AllCars allCars = {allCars}/>
+        <AllCars allCars = {allCars} isLoggedIn={isLoggedIn}/>
         <FiltersMenu />
   </div>
   );

@@ -1,6 +1,7 @@
 // all API fetch requests go here
 
-const BASE_URL = "https://graceshoperbackenddallasvirginiachicagof.onrender.com/api";
+const BASE_URL =
+  "https://graceshoperbackenddallasvirginiachicagof.onrender.com/api";
 // const BASE_URL = "http://localhost:8080/api";
 //////////////////// User API Routes ////////////////////
 
@@ -240,17 +241,17 @@ export async function getCartByUser() {
 
 // checkout a cart
 
-export async function checkOut(id){
+export async function checkOut(id) {
   try {
-    const options={
+    const options = {
       method: "PATCH",
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     };
     const response = await fetch(`${BASE_URL}/cart/${id}`, options);
     const result = await response.json();
-    return result
+    return result;
   } catch (error) {
     throw error;
   }
@@ -261,9 +262,29 @@ export async function checkOut(id){
 //////////////////// Cart Items API Routes ////////////////////
 
 // add car to cart
+export async function addCarToCart(car, cart) {
+  try {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        car,
+        cart,
+      }),
+    };
 
+    const response = await fetch(`${BASE_URL}/cart_items`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
 // delete car from cart
-export async function deleteCarFromCart(id){
+export async function deleteCarFromCart(id) {
   try {
     const options = {
       method: "DELETE",
@@ -276,7 +297,7 @@ export async function deleteCarFromCart(id){
     const result = await response.json();
     return result;
   } catch (error) {
-    throw error
+    throw error;
   }
 }
 
