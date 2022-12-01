@@ -1,7 +1,7 @@
 // all API fetch requests go here
 
-// const BASE_URL = "THIS IS WHERE THE DEPLOYED BACKEND URL WILL GO";
-const BASE_URL = "http://localhost:8080/api";
+const BASE_URL = "https://graceshoperbackenddallasvirginiachicagof.onrender.com/api";
+// const BASE_URL = "http://localhost:8080/api";
 
 //////////////////// User API Routes ////////////////////
 
