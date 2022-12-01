@@ -248,5 +248,21 @@ export async function getCartByUser() {
 // add car to cart
 
 // delete car from cart
+export async function deleteCarFromCart(id){
+  try {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+    const response = await fetch(`${BASE_URL}/cart_items/${id}`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error
+  }
+}
 
 // ?? update car in cart ??
