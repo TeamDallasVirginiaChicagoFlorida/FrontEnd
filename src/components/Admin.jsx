@@ -40,12 +40,12 @@ const Admin = (props) => {
               {car.make} {car.model} {car.year} {car.price}
             </div>
             <button onClick={openEditCarMenu}>Edit Car</button> <button>Remove Car</button>
+            {editCar ? <EditAdminCar setEditCar={setEditCar} user={user} car={car}/> : null}
           </div>
         );
       })}
     </div>
-  {sellingCar ? <AddAdminCar setSellingCar={setSellingCar}/> : null}
-  {editCar ? <EditAdminCar setEditCar={setEditCar}/> : null}
+  {sellingCar ? <AddAdminCar setSellingCar={setSellingCar} user={user}/> : null}
     </>
   );
 };
