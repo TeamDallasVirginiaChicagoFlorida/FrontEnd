@@ -4,37 +4,38 @@ import { updateCar } from "../api-adapter";
 const EditAdminCar = (props) => {
     const setEditCar = props.setEditCar
     const user = props.user
-    const car = props.car
+    const carBeingEdited = props.carBeingEdited
+
+    console.log(carBeingEdited, "this is the car being edited")
 
     async function closeEditCarMenu(){
         setEditCar(false)
     }
-    
-    console.log(car, "type:", car.type)
+  
 
     const [editCarInfo, setEditCarInfo] = useState({
       seller: user.id, 
-      type: car.type, 
-      make: car.make, 
-      model: car.model, 
-      year:  car.year,
-      color: car.color,
-      price: car.price, 
-      transmission_type: car.trasmission_type, 
-      mileage: car.mileage, 
-      interior_color: car.interior_color, 
-      doors: car.doors, 
-      seats: car.seats, 
-      mpg: car.mpg, 
+      type: carBeingEdited.type, 
+      make: carBeingEdited.make, 
+      model: carBeingEdited.model, 
+      year:  carBeingEdited.year,
+      color: carBeingEdited.color,
+      price: carBeingEdited.price, 
+      transmission_type: carBeingEdited.trasmission_type, 
+      mileage: carBeingEdited.mileage, 
+      interior_color: carBeingEdited.interior_color, 
+      doors: carBeingEdited.doors, 
+      seats: carBeingEdited.seats, 
+      mpg: carBeingEdited.mpg, 
       inventory: 1, 
-      photo_url: car.photo_url, 
-      drive_type: car.drive_type, 
-      new_used: car.new_used,
+      photo_url: carBeingEdited.photo_url, 
+      drive_type: carBeingEdited.drive_type, 
+      new_used: carBeingEdited.new_used,
     })
 
     async function handleSubmit(event) {
       event.preventDefault();
-      const id = car.id
+      const id = carBeingEdited.id
       const type = editCarInfo.type
       const make = editCarInfo.make
       const model = editCarInfo.model

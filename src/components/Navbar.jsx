@@ -33,7 +33,7 @@ const Navbar = (props) => {
         <div id="navbuttons">
           <div id="cartAndAccount">
           <NavLink to="/cart">
-            <button><span id="carticon" class="material-symbols-outlined">
+            <button><span id="carticon" className="material-symbols-outlined">
 shopping_cart
 </span> CART</button>
           </NavLink>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getAllCars } from "../api-adapter";
-import { AddAdminCar, EditAdminCar } from "./"
+import { AddAdminCar, EditAdminCar, AdminSingleCar } from "./"
 
 const Admin = (props) => {
   const [sellersCars, setSellersCars] = useState([]);
   const user = props.user;
   const [sellingCar, setSellingCar] = useState(false)
   const [editCar, setEditCar] = useState(false)
+  const [carBeingEdited, setCarBeingEdited] = useState({})
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,9 +26,6 @@ const Admin = (props) => {
     setSellingCar(true)
   }
 
-  async function openEditCarMenu () {
-    setEditCar(true)
-  }
   return (
     <>
     <div id="adminAddCar">
@@ -35,17 +33,14 @@ const Admin = (props) => {
       <button onClick={openAddCarMenu}>Sell a Car</button>
       {sellersCars.map((car) => {
         return (
-          <div key={car.id}>
-            <div>
-              {car.make} {car.model} {car.year} {car.price}
-            </div>
-            <button onClick={openEditCarMenu}>Edit Car</button> <button>Remove Car</button>
-            {editCar ? <EditAdminCar setEditCar={setEditCar} user={user} car={car}/> : null}
-          </div>
+            <AdminSingleCar key={car.id} setEditCar={setEditCar} user={user} car={car} editCar={editCar} setCarBeingEdited={setCarBeingEdited}/>
         );
       })}
     </div>
   {sellingCar ? <AddAdminCar setSellingCar={setSellingCar} user={user}/> : null}
+  {editCar ? (
+        <EditAdminCar setEditCar={setEditCar} user={user} carBeingEdited={carBeingEdited}  />
+      ) : null}
     </>
   );
 };
