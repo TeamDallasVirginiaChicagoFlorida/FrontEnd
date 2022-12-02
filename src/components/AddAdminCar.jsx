@@ -206,7 +206,7 @@ async function handleSubmit(e){
 
 
         <span>
-        <label htmlFor="photo_url">Photo: </label>
+        <label htmlFor="photo_url" alt="/src/components/images/DefaultImage.jpg">Photo: </label>
         <input id="photo_url" type="file" name="file" />
         </span>
         <br />
