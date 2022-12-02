@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AddAdminCar = (props) => {
 	const setSellingCar = props.setSellingCar
-  
+	const user = props.user
 	async function closeSellCarMenu (){
 		setSellingCar(false)
 	}
-	
+
+const [newCarInfo, setNewCarInfo] = useState({
+	seller: user.id,
+	type: "",
+    make: "",
+    model: "",
+    year,
+    color: "",
+    price,
+    transmission_type: "",
+    mileage,
+    interior_color: "",
+    doors,
+    seats,
+    mpg,
+    inventory: 1 ,
+    photo_url: "https://res.cloudinary.com/dyqjp130l/image/upload/v1669994299/Cars/lightning_mcqueen_w1mrdh.jpg",
+    drive_type: "",
+    new_used: ""
+})
 	return (
     <div id="addAdminCar">
 		<div className="popupMenu">
@@ -22,55 +41,69 @@ const AddAdminCar = (props) => {
       <form>
         <span>
         <label htmlFor="type">Type: </label>
-        <select>
+        <select id="type" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, type: e.target.value})
+		}}>
           <option value="Coupe">Coupe</option>
           <option value="Sedan">Sedan</option>
           <option value="SUV">SUV</option>
           <option value="Van">Van</option>
           <option value="Truck">Truck</option>
-          <option value="HatchbackHatchback"></option>
+          <option value="Hatchback">Hatchback</option>
         </select>
         </span>
         <br />
 
         <span>
         <label for="make">Make: </label>
-        <input id="make" />
+        <input id="make" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, make: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label for="model">Model: </label>
-        <input id="model" />
+        <input id="model" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, model: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label for="year">Year: </label>
-        <input type="number" id="year" />
+        <input type="number" id="year" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, year: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
-        <label for="color">Make: </label>
-        <input id="color" />
+        <label for="color">Color: </label>
+        <input id="color" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, color: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label for="price">Price: </label>
-        <input type="number" id="price" />
+        <input type="number" id="price" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, price: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label htmlFor="transmission_type">Transmission: </label>
-        <select id="transmission_type">
+        <select id="transmission_type" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, transmission_type: e.target.value })
+		}} required>
           <option value="Automatic">Automatic</option>
           <option value="Manual">Manual</option>
         </select>
@@ -80,35 +113,45 @@ const AddAdminCar = (props) => {
 
         <span>
         <label htmlFor="mileage">Mileage: </label>
-        <input type="number" id="mileage" />
+        <input type="number" id="mileage" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, mileage: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label htmlFor="interior_color">Interior Color: </label>
-        <input id="interior_color" />
+        <input id="interior_color" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, interior_color: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label htmlFor="seats">Seats: </label>
-        <input type="number" id="seats" />
+        <input type="number" id="seats" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, seats: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label htmlFor="doors">Doors: </label>
-        <input type="number" id="doors" />
+        <input type="number" id="doors" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, doors: e.target.value })
+		}} required/>
         </span>
         <br />
 
 
         <span>
         <label htmlFor="mpg">MPG: </label>
-        <input type="number" id="mpg" />
+        <input type="number" id="mpg" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, mpg: e.target.value })
+		}} required/>
         </span>
         <br />
 
@@ -122,7 +165,9 @@ const AddAdminCar = (props) => {
 
         <span>
         <label htmlFor="drive_type">Drive Type:</label>
-        <select id="drive_type">
+        <select id="drive_type" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, drive_type: e.target.value })
+		}}required>
           <option value="4WD">4WD</option>
           <option value="FWD">FWD</option>
           <option value="RWD">RWD</option>
@@ -133,7 +178,9 @@ const AddAdminCar = (props) => {
 
         <span>
         <label htmlFor="new_used">Condition: </label>
-        <select id="new_used">
+        <select id="new_used" onChange={(e)=>{
+			setNewCarInfo({...newCarInfo, new_used: e.target.value })
+		}}required>
           <option value="new">New</option>
           <option value="used">Used</option>
         </select>
