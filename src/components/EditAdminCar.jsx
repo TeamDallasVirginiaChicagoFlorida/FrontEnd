@@ -9,6 +9,8 @@ const EditAdminCar = (props) => {
     async function closeEditCarMenu(){
         setEditCar(false)
     }
+    
+    console.log(car, "type:", car.type)
 
     const [editCarInfo, setEditCarInfo] = useState({
       seller: user.id, 
@@ -71,7 +73,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="type">Type: </label>
         <select id="type" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, type: e.target.value })
-            } required>
+            } value={editCarInfo.type} required>
           <option value="Coupe">Coupe</option>
           <option value="Sedan">Sedan</option>
           <option value="SUV">SUV</option>
@@ -83,46 +85,46 @@ const EditAdminCar = (props) => {
         <br />
 
         <span>
-        <label for="make">Make: </label>
+        <label htmlFor="make">Make: </label>
         <input id="make" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, make: e.target.value })
-            } required/>
+            } value={editCarInfo.make} required/>
         </span>
         <br />
 
 
         <span>
-        <label for="model">Model: </label>
+        <label htmlFor="model">Model: </label>
         <input id="model" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, model: e.target.value })
-            } required/>
+            } value={editCarInfo.model} required/>
         </span>
         <br />
 
 
         <span>
-        <label for="year">Year: </label>
+        <label htmlFor="year">Year: </label>
         <input type="number" id="year" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, year: e.target.value })
-            } required />
+            } value={editCarInfo.year} required />
         </span>
         <br />
 
 
         <span>
-        <label for="color">Color: </label>
+        <label htmlFor="color">Color: </label>
         <input id="color" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, color: e.target.value })
-            } required/>
+            } value={editCarInfo.color} required/>
         </span>
         <br />
 
 
         <span>
-        <label for="price">Price: </label>
+        <label htmlFor="price">Price: </label>
         <input type="number" id="price" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, price: e.target.value })
-            } required/>
+            } value={editCarInfo.price} required/>
         </span>
         <br />
 
@@ -131,7 +133,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="transmission_type">Transmission: </label>
         <select id="transmission_type" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, transmission_type: e.target.value })
-            } required>
+            } value={editCarInfo.transmission_type} required>
           <option value="Automatic">Automatic</option>
           <option value="Manual">Manual</option>
         </select>
@@ -143,7 +145,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="mileage">Mileage: </label>
         <input type="number" id="mileage" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, mileage: e.target.value })
-            } required/>
+            } value={editCarInfo.mileage} required/>
         </span>
         <br />
 
@@ -152,7 +154,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="interior_color">Interior Color: </label>
         <input id="interior_color" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, interior_color: e.target.value })
-            } required/>
+            } value={editCarInfo.interior_color} required/>
         </span>
         <br />
 
@@ -161,7 +163,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="seats">Seats: </label>
         <input type="number" id="seats" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, seats: e.target.value })
-            } required/>
+            } value={editCarInfo.seats} required/>
         </span>
         <br />
 
@@ -170,7 +172,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="doors">Doors: </label>
         <input type="number" id="doors" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, doors: e.target.value })
-            } required/>
+            } value={editCarInfo.doors} required/>
         </span>
         <br />
 
@@ -179,7 +181,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="mpg">MPG: </label>
         <input type="number" id="mpg" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, mpg: e.target.value })
-            } required/>
+            } value={editCarInfo.mpg} required/>
         </span>
         <br />
 
@@ -195,7 +197,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="drive_type">Drive Type:</label>
         <select id="drive_type" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, drive_type: e.target.value })
-            } required>
+            } value={editCarInfo.drive_type} required>
           <option value="4WD">4WD</option>
           <option value="FWD">FWD</option>
           <option value="RWD">RWD</option>
@@ -208,7 +210,7 @@ const EditAdminCar = (props) => {
         <label htmlFor="new_used">Condition: </label>
         <select id="new_used" onChange={(e) =>
               setEditCarInfo({ ...editCarInfo, new_used: e.target.value })
-            } required>
+            } value={editCarInfo.new_used} required>
           <option value="new">New</option>
           <option value="used">Used</option>
         </select>

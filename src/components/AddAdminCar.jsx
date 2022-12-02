@@ -104,7 +104,7 @@ async function handleSubmit(e){
         <br />
 
         <span>
-        <label for="make">Make: </label>
+        <label htmlFor="make">Make: </label>
         <input id="make" onChange={(e)=>{
 			setNewCarInfo({...newCarInfo, make: e.target.value })
 		}} required/>
@@ -113,7 +113,7 @@ async function handleSubmit(e){
 
 
         <span>
-        <label for="model">Model: </label>
+        <label htmlFor="model">Model: </label>
         <input id="model" onChange={(e)=>{
 			setNewCarInfo({...newCarInfo, model: e.target.value })
 		}} required/>
@@ -122,7 +122,7 @@ async function handleSubmit(e){
 
 
         <span>
-        <label for="year">Year: </label>
+        <label htmlFor="year">Year: </label>
         <input type="number" id="year" onChange={(e)=>{
 			setNewCarInfo({...newCarInfo, year: e.target.value })
 		}} required/>
@@ -131,7 +131,7 @@ async function handleSubmit(e){
 
 
         <span>
-        <label for="color">Color: </label>
+        <label htmlFor="color">Color: </label>
         <input id="color" onChange={(e)=>{
 			setNewCarInfo({...newCarInfo, color: e.target.value })
 		}} required/>
@@ -140,7 +140,7 @@ async function handleSubmit(e){
 
 
         <span>
-        <label for="price">Price: </label>
+        <label htmlFor="price">Price: </label>
         <input type="number" id="price" onChange={(e)=>{
 			setNewCarInfo({...newCarInfo, price: e.target.value })
 		}} required/>
