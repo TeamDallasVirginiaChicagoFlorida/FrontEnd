@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { updateCar } from "../api-adapter";
 
 const EditAdminCar = (props) => {
     const setEditCar = props.setEditCar
@@ -29,6 +30,31 @@ const EditAdminCar = (props) => {
       new_used: car.new_used,
     })
 
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const id = car.id
+      const type = editCarInfo.type
+      const make = editCarInfo.make
+      const model = editCarInfo.model
+      const year = editCarInfo.year
+      const color = editCarInfo.color
+      const price = editCarInfo.price
+      const transmission_type = editCarInfo.transmission_type
+      const mileage = editCarInfo.mileage
+      const interior_color = editCarInfo.interior_color
+      const doors = editCarInfo.doors
+      const seats = editCarInfo.seats
+      const mpg = editCarInfo.mpg
+      const inventory = editCarInfo.inventory
+      const photo_url = editCarInfo.photo_url
+      const drive_type = editCarInfo.drive_type
+      const new_used = editCarInfo.new_used
+
+      const response = await updateCar(id, type, make, model, year, color, price, transmission_type, mileage, interior_color, doors, seats, mpg, inventory, photo_url, drive_type, new_used)
+
+      setEditCar(false)
+    }
+
     return(
         <div id="editAdminCar" >
             <div className="popupMenu">
@@ -40,7 +66,7 @@ const EditAdminCar = (props) => {
       >
         close
       </span>
-      <form>
+      <form onSubmit={handleSubmit}>
         <span>
         <label htmlFor="type">Type: </label>
         <select id="type" onChange={(e) =>
