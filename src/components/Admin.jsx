@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getAllCars } from "../api-adapter";
+import { AddAdminCar, EditAdminCar } from "./"
 
 const Admin = (props) => {
   const [sellersCars, setSellersCars] = useState([]);
   const user = props.user;
+  const [sellingCar, setSellingCar] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,9 +20,15 @@ const Admin = (props) => {
     fetchData();
   }, []);
 
+  async function openAddCarMenu () {
+    setSellingCar(true)
+  }
+
   return (
+    <>
     <div id="adminAddCar">
       <h1>Cars for Sale:</h1>
+      <button onClick={openAddCarMenu}>Sell a Car</button>
       {sellersCars.map((car) => {
         return (
           <div key={car.id}>
@@ -32,6 +40,8 @@ const Admin = (props) => {
         );
       })}
     </div>
+  {sellingCar ? <AddAdminCar setSellingCar={setSellingCar}/> : null}
+    </>
   );
 };
 
