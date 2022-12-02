@@ -10,7 +10,7 @@ const Cart_SingleCar = (props) => {
   }
 
   return (
-    <div id="adminAddCar">
+    <div id="cartSingleCar">
         {item ?         <>
       <img src={item.photo_url} />
       <p>

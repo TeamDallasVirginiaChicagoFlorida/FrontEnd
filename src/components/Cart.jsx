@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { checkOut, getCartByUser } from "../api-adapter";
-import { Cart_SingleCar } from "./";
+import { Cart_SingleCar, GuestCartItem } from "./";
 import { useNavigate } from "react-router-dom";
 
 const Cart = (props) => {
@@ -17,11 +17,14 @@ const Cart = (props) => {
       const id = data[0].id;
       setCurrentId(id);
       setActiveCartCars(activeCart);
+
+      
     };
     fetchData();
   }, [isLoggedIn]);
 
   let total = 0;
+
 
   async function finishedSale() {
     await checkOut(currentId);
@@ -29,7 +32,7 @@ const Cart = (props) => {
   }
   return (
     <div id="cart">
-      {isLoggedIn ? (
+      {localStorage.getItem("token") ? (
         <div>
           <h1>Your Cart:</h1>
           {activeCartCars
@@ -39,17 +42,20 @@ const Cart = (props) => {
             : null}
           <h3>
             Total Price:{" "}
-            {activeCartCars.map((item) => {
+            {/* {activeCartCars.map((item) => {
               total += item.price;
             })}
-            ${parseInt(total, 10)}
+            ${parseInt(total, 10)} */}
           </h3>
           <button onClick={finishedSale}>Check Out</button>
         </div>
       ) : (
         <div>
-          
           <h1>Your Cart:</h1>
+          {JSON.parse(localStorage.getItem("cart")).map((item)=>{
+            return <GuestCartItem item={item}/>
+          })}
+            <h3>Please login or register to checkout! <br/>You're cart will be saved!</h3>
         </div>
       )}
     </div>
