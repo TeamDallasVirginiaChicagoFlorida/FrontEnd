@@ -23,7 +23,7 @@ const Admin = (props) => {
       <h1>Cars for Sale:</h1>
       {sellersCars.map((car) => {
         return (
-          <div>
+          <div key={car.id}>
             <div>
               {car.make} {car.model} {car.year} {car.price}
             </div>
