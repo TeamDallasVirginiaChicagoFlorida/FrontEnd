@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { logInUser } from "../api-adapter";
+import { addCarToCart, logInUser } from "../api-adapter";
 
 const Login = (props) => {
   const setIsLoggedIn = props.setIsLoggedIn;
@@ -28,6 +28,18 @@ const Login = (props) => {
     if (response && response.token) {
       localStorage.setItem("token", response.token);
       setIsLoggedIn(response.token);
+
+      if (localStorage.getItem("cart")) {
+        const theCart = JSON.parse(localStorage.getItem("cart"))
+        for (let i = 0; i < theCart.length; i++) {
+          const carId = theCart[i]
+          addCarToCart(carId)
+        }
+        localStorage.removeItem("cart")
+      }
+
+
+
       setLoginMenu(false);
       setError(null);
     } else {
@@ -39,6 +51,8 @@ const Login = (props) => {
       password: "",
     });
   }
+
+
   async function changeMenu(){
     setLoginMenu(false);
     setRegisterMenu(true);

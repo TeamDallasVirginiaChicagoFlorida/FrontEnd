@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { checkOut, getCartByUser } from "../api-adapter";
+import { addCarToCart, checkOut, getCartByUser } from "../api-adapter";
 import { Cart_SingleCar, GuestCartItem } from "./";
 import { useNavigate } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const Cart = (props) => {
       
     };
     fetchData();
-  }, [isLoggedIn]);
+  }, [isLoggedIn, addCarToCart]);
 
   let total = 0;
 
