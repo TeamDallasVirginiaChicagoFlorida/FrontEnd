@@ -6,18 +6,25 @@ const SingleCar = (props) => {
   const [car, setCar] = useState(props.car);
   const isLoggedIn = props.isLoggedIn;
   const currentId = props.currentId
+  
 
 
   async function addCar() {
     if(isLoggedIn){
-
-    
     const response = await addCarToCart(car.id, currentId);
-
     !response.error && setCar(false)}
     else{
-        const carts = localStorage.getItem('carts');
-        return carts.some(cart => cart.id == id);
+        if(localStorage.getItem("cart")){
+          const holdThisCart = JSON.parse(localStorage.getItem("cart"))
+          if(!holdThisCart.includes(car.id)){
+            holdThisCart.push(car.id)
+            localStorage.setItem("cart", JSON.stringify(holdThisCart))
+          }
+        }else{
+          localStorage.setItem("cart", JSON.stringify([car.id]))
+        }
+        // const carts = localStorage.getItem('carts');
+        // return carts.some(cart => cart.id == id);
       }
     }
   
