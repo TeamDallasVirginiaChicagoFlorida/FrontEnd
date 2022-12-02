@@ -1,8 +1,20 @@
 import React from "react";
 
 const EditAdminCar = (props) => {
+    const setEditCar = props.setEditCar
+    async function closeEditCarMenu(){
+        setEditCar(false)
+    }
     return(
-        <div id="editAdminCarMenu">
+        <div id="editAdminCar" >
+            <div className="popupMenu">
+      <span
+        className="material-symbols-outlined x"
+        onClick={closeEditCarMenu}
+        alt="Close Menu"
+      >
+        close
+      </span>
             <form>
                 <label htmlFor="type">Type: </label>
                 <select id="type">
@@ -66,6 +78,7 @@ const EditAdminCar = (props) => {
                     <option value="used">Used</option>
                 </select>
             </form>
+            </div>
         </div>
     )
 }

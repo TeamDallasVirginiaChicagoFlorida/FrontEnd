@@ -6,6 +6,7 @@ const Admin = (props) => {
   const [sellersCars, setSellersCars] = useState([]);
   const user = props.user;
   const [sellingCar, setSellingCar] = useState(false)
+  const [editCar, setEditCar] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +25,9 @@ const Admin = (props) => {
     setSellingCar(true)
   }
 
+  async function openEditCarMenu () {
+    setEditCar(true)
+  }
   return (
     <>
     <div id="adminAddCar">
@@ -35,12 +39,13 @@ const Admin = (props) => {
             <div>
               {car.make} {car.model} {car.year} {car.price}
             </div>
-            <button>Edit Car</button> <button>Remove Car</button>
+            <button onClick={openEditCarMenu}>Edit Car</button> <button>Remove Car</button>
           </div>
         );
       })}
     </div>
   {sellingCar ? <AddAdminCar setSellingCar={setSellingCar}/> : null}
+  {editCar ? <EditAdminCar setEditCar={setEditCar}/> : null}
     </>
   );
 };

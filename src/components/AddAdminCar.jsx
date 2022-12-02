@@ -9,6 +9,7 @@ const AddAdminCar = (props) => {
 	
 	return (
     <div id="addAdminCar">
+		<div className="popupMenu">
       <span
         className="material-symbols-outlined x"
         onClick={closeSellCarMenu}
@@ -82,6 +83,7 @@ const AddAdminCar = (props) => {
           <option value="used">Used</option>
         </select>
       </form>
+	  </div>
     </div>
   );
 };

@@ -30,7 +30,7 @@
 
 /* ***Login/Register Menus*** */
 
-#login, #register {
+#login, #register, #addAdminCar, #editAdminCar {
     z-index: 1;
     display: flex;
   justify-content: space-around;
