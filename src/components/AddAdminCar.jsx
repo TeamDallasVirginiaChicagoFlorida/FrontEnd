@@ -13,15 +13,15 @@ const [newCarInfo, setNewCarInfo] = useState({
 	type: "",
     make: "",
     model: "",
-    year,
+    year: "",
     color: "",
-    price,
+    price: "",
     transmission_type: "",
-    mileage,
+    mileage:"",
     interior_color: "",
-    doors,
-    seats,
-    mpg,
+    doors:"",
+    seats:"",
+    mpg:"",
     inventory: 1 ,
     photo_url: "https://res.cloudinary.com/dyqjp130l/image/upload/v1669994299/Cars/lightning_mcqueen_w1mrdh.jpg",
     drive_type: "",
@@ -49,11 +49,11 @@ async function handleSubmit(e){
 
 	const response = await createNewCarPost(type, make, model, year, color, price, transmission_type, mileage, interior_color, doors, seats, mpg, inventory, photo_url, drive_type, new_used)
 
-	if(response.message){
-		console.log('come back to do the error message')
-	}else{
+	// if(response.message){
+	// 	console.log('come back to do the error message')
+	// }else{
 		setSellingCar(false)
-	}
+	// }
 	setNewCarInfo({
 		seller: user.id,
 		type: "",
