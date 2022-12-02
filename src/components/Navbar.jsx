@@ -31,16 +31,20 @@ const Navbar = (props) => {
         <NavLink to="/">
         <img id="logo" src={require("./images/SMALL COPY OF LOGO.png")}/></NavLink>
         <div id="navbuttons">
+          <div id="cartAndAccount">
           <NavLink to="/cart">
-            <button>CART</button>
+            <button><span id="carticon" class="material-symbols-outlined">
+shopping_cart
+</span> CART</button>
           </NavLink>
           {isLoggedIn?<NavLink to="/myaccount">
                 <button>MY ACCOUNT</button>
               </NavLink>:null}
+              </div>
           {isLoggedIn ? (
               <button onClick={logout}>LOGOUT</button>
           ) : (
-            <div>
+            <div id="loginAndRegister">
               <button onClick={openMenuLogin}>LOGIN</button>
               <button onClick={openRegisterMenu}>REGISTER</button>
             </div>
