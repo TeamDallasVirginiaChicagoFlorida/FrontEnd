@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createNewCarPost } from "../api-adapter";
 
 const AddAdminCar = (props) => {
 	const setSellingCar = props.setSellingCar
@@ -26,6 +27,54 @@ const [newCarInfo, setNewCarInfo] = useState({
     drive_type: "",
     new_used: ""
 })
+
+async function handleSubmit(e){
+	e.preventDefault()
+	const type = newCarInfo.type
+	const make = newCarInfo.make
+	const model = newCarInfo.model
+	const year = newCarInfo.year
+	const color = newCarInfo.color
+	const price = newCarInfo.price
+	const transmission_type = newCarInfo.transmission_type
+	const mileage = newCarInfo.mileage
+	const interior_color = newCarInfo.interior_color
+	const doors = newCarInfo.doors
+	const seats = newCarInfo.seats
+	const mpg = newCarInfo.mpg
+	const inventory = newCarInfo.inventory
+	const photo_url = newCarInfo.photo_url
+	const drive_type = newCarInfo.drive_type
+	const new_used = newCarInfo.new_used
+
+	const response = await createNewCarPost(type, make, model, year, color, price, transmission_type, mileage, interior_color, doors, seats, mpg, inventory, photo_url, drive_type, new_used)
+
+	if(response.message){
+		console.log('come back to do the error message')
+	}else{
+		setSellingCar(false)
+	}
+	setNewCarInfo({
+		seller: user.id,
+		type: "",
+		make: "",
+		model: "",
+		year,
+		color: "",
+		price,
+		transmission_type: "",
+		mileage,
+		interior_color: "",
+		doors,
+		seats,
+		mpg,
+		inventory: 1 ,
+		photo_url: "https://res.cloudinary.com/dyqjp130l/image/upload/v1669994299/Cars/lightning_mcqueen_w1mrdh.jpg",
+		drive_type: "",
+		new_used: ""
+	})
+	
+}
 	return (
     <div id="addAdminCar">
 		<div className="popupMenu">
@@ -38,7 +87,7 @@ const [newCarInfo, setNewCarInfo] = useState({
         close
       </span>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <span>
         <label htmlFor="type">Type: </label>
         <select id="type" onChange={(e)=>{
