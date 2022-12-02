@@ -6,6 +6,7 @@ const SingleCarDetails = (props) => {
   const {id} = useParams();
   const [singleCar, setSingleCar] = useState([]);
   const [currentId, setCurrentId] = useState();
+  
   useEffect(()=>{
     const fetchData = async()=>{
       const data = await getSingleCar(id)
@@ -13,61 +14,23 @@ const SingleCarDetails = (props) => {
     }
     fetchData()
   },[])
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await getCartByUser();
-      const id = data[0].id;
+      const id = await data[0].id;
       setCurrentId(id);
     };
     fetchData();
   }, []);
+
   const navigate = useNavigate();
-  // const [carDetails, setCarDetails] = useState({
-  //       type: '',
-  //       make: '',
-  //       model: '',
-  //       year: '',
-  //       color: '',
-  //       price: '',
-  //       transmission_type: '',
-  //       mileage: '',
-  //       interior_color: '',
-  //       doors: '',
-  //       seats: '',
-  //       mpg: '',
-  //       inventory: '',
-  //       photo_url: '',
-  //       drive_type: '',
-  //       new_used: '',
-  // })
-  // useEffect(()=>{
-  //   car?
-  //   setCarDetails(
-  //     {        
-  //     type: car.type,
-  //     make: car.make,
-  //     model: car.model,
-  //     year: car.year,
-  //     color: car.color,
-  //     price: car.price,
-  //     transmission_type: car.transmission_type,
-  //     mileage: car.mileage,
-  //     interior_color: car.interior_color,
-  //     doors: car.doors,
-  //     seats: car.seats,
-  //     mpg: car.mpg,
-  //     inventory: car.inventory,
-  //     photo_url: car.photo_url,
-  //     drive_type: car.drive_type,
-  //     new_used: car.new_used,}
-  //   ): null
-  // }, [car])
+
   async function addCar() {
     await addCarToCart(singleCar.id, currentId)
     navigate('/cart')
     console.log("you added a car, congrats!")
   }
-
 
   return (
     <div id="singleCarDetails">

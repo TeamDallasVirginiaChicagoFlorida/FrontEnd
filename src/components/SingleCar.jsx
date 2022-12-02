@@ -6,15 +6,8 @@ import { addCarToCart, getCartByUser } from "../api-adapter";
 const SingleCar = (props) => {
   const car = props.car;
   const isLoggedIn = props.isLoggedIn;
-  const [currentId, setCurrentId] = useState()
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getCartByUser();
-      const id = data[0].id;
-      setCurrentId(id);
-    };
-    fetchData();
-  }, []);
+  const currentId = props.currentId
+
 
 
   async function addCar() {
