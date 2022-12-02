@@ -12,7 +12,7 @@ const fetchData = async()=>{
 }
 fetchData();
   },[])
-  console.log(pastOrders, "this is the past orders")
+ 
 
   return (
     <div id="orderHistory">
