@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { addCarToCart, getCartByUser } from "../api-adapter";
-
 
 const SingleCar = (props) => {
   const car = props.car;
@@ -9,12 +8,9 @@ const SingleCar = (props) => {
   const currentId = props.currentId
 
 
-
   async function addCar() {
-    await addCarToCart(car.id, currentId)
-    console.log("you added a car, congrats!")
+    await addCarToCart(car.id, currentId);
   }
-
 
   return (
     <div id="singleCar">
