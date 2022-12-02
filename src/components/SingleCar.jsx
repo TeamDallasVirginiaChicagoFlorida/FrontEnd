@@ -9,10 +9,18 @@ const SingleCar = (props) => {
 
 
   async function addCar() {
+    if(isLoggedIn){
+
+    
     const response = await addCarToCart(car.id, currentId);
 
-    !response.error && setCar(false)
-  }
+    !response.error && setCar(false)}
+    else{
+        const carts = localStorage.getItem('carts');
+        return carts.some(cart => cart.id == id);
+      }
+    }
+  
 
   return (
     <div id="singleCar">
@@ -29,7 +37,6 @@ const SingleCar = (props) => {
     </div>
   );
 };
-
 
 
 // async function addCar() {
