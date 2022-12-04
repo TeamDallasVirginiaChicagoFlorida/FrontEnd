@@ -6,20 +6,27 @@ const Cart_SingleCar = (props) => {
   async function removeCar() {
     const response = await deleteCarFromCart(item.id);
 
-    !response.error && setItem(false)
+    !response.error && setItem(false);
   }
 
   return (
     <div id="cartSingleCar">
-        {item ?         <>
-      <img src={item.photo_url} />
-      <p>
-        {item.make} {item.model} {item.year}
-      </p>
-      <p>{item.price}</p>
-      <button onClick={removeCar}>Remove car from cart</button>
-      </>:null}
+      {item ? (
+        <>
+          <img src={item.photo_url} />
+          <p>
+            {item.make} {item.model} {item.year}
+          </p>
+          <p>{item.price}</p>
 
+          <span className="addToCartPlus">
+            <span class="material-symbols-outlined" onClick={removeCar}>
+              remove_shopping_cart
+            </span>
+            Remove From Cart
+          </span>
+        </>
+      ) : null}
     </div>
   );
 };

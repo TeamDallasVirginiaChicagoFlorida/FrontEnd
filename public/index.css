@@ -162,26 +162,46 @@ button {
 
 .box {
     margin: 10px;
+    display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
-img {
-    border: 2px solid black;
-    width:500px ;
-    height: 300px;
+#singleCarPhoto {
+    width:410px ;
+    height: 100%;
     margin: auto;
-    border-radius: 8px;
+    
 }
 
 .carTitle {
-    background-color: silver;
+    
+    text-align: center;
 }
 
 .boxDetails {
-    border: 2px solid black;
-    border-radius: 8px;
+   
+  
     margin: 2px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.062);
+    padding: 5px;
+    min-width: 220px ;
+    ;
     
+    
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px
+}
+
+.carInfo .addToCartPlus {
+
+  align-self: center;
 }
 
 .goBackButton {
@@ -240,7 +260,6 @@ img {
 
 .SeeMoreDetailsBtn{
   display: inline-block;
-  border-radius: 4px;
   background-color: #b4afad;
   border: none;
   color: #000000;

@@ -29,7 +29,12 @@ const GuestCartItem  = (props) => {
           {theCar.make} {theCar.model} {theCar.year}
         </p>
         <p>{theCar.price}</p>
-        <button onClick={removeCar}>Remove car from cart</button>
+        <span className="addToCartPlus">
+            <span class="material-symbols-outlined" onClick={removeCar}>
+              remove_shopping_cart
+            </span>
+            Remove From Cart
+          </span>
         </>:null}
   
       </div>

@@ -36,10 +36,13 @@ const SingleCarDetails = (props) => {
       {singleCar ? (
         <>
           <div className="box">
+          <Link to={`/`}>
+            <button className="SeeMoreDetailsBtn"><span>Go Back to All Cars</span></button>
+          </Link>
             <h3 className="carTitle">
               {singleCar.make} {singleCar.model} {singleCar.year}{" "}
             </h3>
-            <img src={singleCar.photo_url} />
+            <img src={singleCar.photo_url} id="singleCarPhoto" />
             <div className="boxDetails">
               <div className="carInfo">
                 <div>{singleCar.type} </div>
@@ -53,13 +56,13 @@ const SingleCarDetails = (props) => {
                 <div>MPG: {singleCar.mpg} </div>
                 <div>Drive Type: {singleCar.drive_type} </div>
                 <div>Condition: {singleCar.new_used} </div>
+                <span onClick={addCar} className="addToCartPlus"><span  className="material-symbols-outlined addToCart">
+add_shopping_cart
+</span> Add to Cart</span>
               </div>
             </div>
           </div>
-          <button onClick={addCar}>Add To Cart</button>
-          <Link to={`/`}>
-            <button className="goBackButton"> Go Back to All Cars</button>
-          </Link>
+          
         </>
       ) : (
         <div> loading the cars... </div>
