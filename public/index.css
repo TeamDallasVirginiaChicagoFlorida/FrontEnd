@@ -188,3 +188,7 @@ img {
     margin: 5px;
 }
 
+#singleCar{
+  display: column;
+  justify-content: space-evenly;
+}
