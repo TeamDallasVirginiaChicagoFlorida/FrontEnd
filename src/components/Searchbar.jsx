@@ -19,12 +19,11 @@ const SearchBar = (props) => {
 
   return (
     <div id="searchBar">
-      <p className="titleText">Search Vehicles: </p>
       <span className="Search">
         <input
           type="text"
           className="searchBar"
-          placeholder="Search..."
+          placeholder="Search vehicles..."
           value={searchTerm}
           onChange={(event) => {
             setSearchTerm(event.target.value);

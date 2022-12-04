@@ -29,7 +29,9 @@ const SingleCar = (props) => {
 
   return (
     <div id="singleCar">
-      {car ?  <><h2>
+      {car ?  <>
+        
+      <h2>
         {car.make} {car.year} {car.model}
       </h2>
       <img src={car.photo_url} className="AllCarsPage" />
@@ -37,7 +39,9 @@ const SingleCar = (props) => {
       <Link to={`/carDetails/${car.id}`}>
         <button className="SeeMoreDetailsBtn"><span> See More Details</span></button>
       </Link>
-      <button onClick={addCar}>Add To Cart</button></>:null}
+      <span onClick={addCar} className="addToCartPlus"><span  className="material-symbols-outlined addToCart">
+add_shopping_cart
+</span> Add to Cart</span></>:null}
      
     </div>
   );

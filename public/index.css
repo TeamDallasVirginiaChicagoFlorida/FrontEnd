@@ -57,6 +57,10 @@ body, #app {
     flex-direction: row;
 }
 
+#navbuttons a{
+  text-decoration: none;
+}
+
 #navbuttons button {
     border: none;
     color: white;
@@ -188,6 +192,18 @@ img {
     margin: 5px;
 }
 
+/* this is on the AllCars page */
+
+#homePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Search input {
+  padding: 5px;
+}
+
 #singleCar {
   display: flex;
   flex-direction: column;
@@ -202,6 +218,8 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  padding: 20px;
+  justify-content: center;
 }
 
 .AllCarsPage {
@@ -213,7 +231,11 @@ img {
 #singleCar h2 {
   font-size: 15px;
   overflow-wrap: break-word;
-  
+}
+
+#singleCar h3 {
+  font-size: 14px;
+  overflow-wrap: break-word;
 }
 
 .SeeMoreDetailsBtn{
@@ -253,4 +275,14 @@ img {
 .SeeMoreDetailsBtn:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.addToCartPlus:hover {
+  font-weight: bolder;
+  transform: scale(1.1);
+}
+
+.addToCartPlus {
+  display: flex;
+  align-items: center;
 }
