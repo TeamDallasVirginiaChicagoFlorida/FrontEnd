@@ -10,14 +10,16 @@ const Cart_SingleCar = (props) => {
   }
 
   return (
-    <div id="cartSingleCar">
+    <div id="theWholeCart">
+  
       {item ? (
-        <>
+  <div id="cartSingleCar">
           <img src={item.photo_url} />
+          <div className="cartInfo">
           <p>
             {item.make} {item.model} {item.year}
           </p>
-          <p>{item.price}</p>
+          <p>${item.price}</p>
 
           <span className="addToCartPlus">
             <span class="material-symbols-outlined" onClick={removeCar}>
@@ -25,7 +27,8 @@ const Cart_SingleCar = (props) => {
             </span>
             Remove From Cart
           </span>
-        </>
+          </div>
+</div>
       ) : null}
     </div>
   );

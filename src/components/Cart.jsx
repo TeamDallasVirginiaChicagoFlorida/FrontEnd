@@ -47,7 +47,7 @@ const Cart = (props) => {
             })}
             ${parseInt(total, 10)} */}
           </h3>
-          <button onClick={finishedSale}>Check Out</button>
+          <button className="SeeMoreDetailsBtn Checkout" onClick={finishedSale}><span>Check Out</span></button>
         </div>
       ) : (
         <div>
@@ -55,7 +55,7 @@ const Cart = (props) => {
           {JSON.parse(localStorage.getItem("cart")).map((item)=>{
             return <GuestCartItem item={item}/>
           })}
-            <h3>Please login or register to checkout! <br/>You're cart will be saved!</h3>
+            <h3>Please login or register to checkout! <br/>Your cart will be saved!</h3>
         </div>
       )}
     </div>

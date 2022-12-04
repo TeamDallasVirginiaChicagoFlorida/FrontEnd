@@ -22,22 +22,24 @@ const GuestCartItem  = (props) => {
       },[])
   
     return (
+      <div id="theWholeCart">
       <div id="cartSingleCar">
           {theCar ?         <>
         <img src={theCar.photo_url} />
+        <div className="cartInfo">
         <p>
           {theCar.make} {theCar.model} {theCar.year}
         </p>
-        <p>{theCar.price}</p>
+        <p>${theCar.price}</p>
         <span className="addToCartPlus">
             <span class="material-symbols-outlined" onClick={removeCar}>
               remove_shopping_cart
             </span>
             Remove From Cart
-          </span>
+          </span></div>
         </>:null}
   
-      </div>
+      </div></div>
     );
 
 }
