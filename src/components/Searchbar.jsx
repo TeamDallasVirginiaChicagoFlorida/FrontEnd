@@ -18,12 +18,12 @@ const SearchBar = (props) => {
   // setFilteredCars(vehiclesToDisplay)
 
   return (
-    <div id="searchbar">
+    <div id="searchBar">
       <p className="titleText">Search Vehicles: </p>
       <span className="Search">
         <input
           type="text"
-          className="searchbar"
+          className="searchBar"
           placeholder="Search..."
           value={searchTerm}
           onChange={(event) => {
