@@ -32,10 +32,10 @@ const SingleCar = (props) => {
       {car ?  <><h2>
         {car.make} {car.year} {car.model}
       </h2>
-      <img src={car.photo_url} />
+      <img src={car.photo_url} className="AllCarsPage" />
       <h3>${car.price}</h3>
       <Link to={`/carDetails/${car.id}`}>
-        <button> See More Details</button>
+        <button className="SeeMoreDetailsBtn"><span> See More Details</span></button>
       </Link>
       <button onClick={addCar}>Add To Cart</button></>:null}
      

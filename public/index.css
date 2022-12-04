@@ -188,7 +188,69 @@ img {
     margin: 5px;
 }
 
-#singleCar{
-  display: column;
+#singleCar {
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  background-color: rgba(255, 255, 255, 0.062);
+  padding: 5px;
+  min-width: 220px ;
+  align-items: center;
+}
+
+#AllCars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.AllCarsPage {
+  height: 125px ;
+  width: 200px
+
+
+}
+#singleCar h2 {
+  font-size: 15px;
+  overflow-wrap: break-word;
+  
+}
+
+.SeeMoreDetailsBtn{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #b4afad;
+  border: none;
+  color: #000000;
+  text-align: center;
+  padding: 5px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.SeeMoreDetailsBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.SeeMoreDetailsBtn span:after{
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.SeeMoreDetailsBtn:hover span{
+  padding-right: 15px;
+}
+
+.SeeMoreDetailsBtn:hover span:after {
+  opacity: 1;
+  right: 0;
 }
