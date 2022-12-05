@@ -7,8 +7,8 @@ const Login = (props) => {
   const setError = props.setError;
   const error = props.error;
   const setRegisterMenu = props.setRegisterMenu;
-  const isLoggedIn = props.isLoggedIn
-  const [currentId, setCurrentId] = useState(null)
+  const isLoggedIn = props.isLoggedIn;
+  const [currentId, setCurrentId] = useState(null);
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -20,37 +20,33 @@ const Login = (props) => {
     setError(null);
   }
 
-
   async function handleSubmit(event) {
     event.preventDefault();
     const email = loginInfo.email;
     const password = loginInfo.password;
     const response = await logInUser(email, password);
 
-
     localStorage.removeItem("token");
     if (response && response.token) {
       localStorage.setItem("token", response.token);
       setIsLoggedIn(response.token);
 
-        const data = await getCartByUser();
-        console.log(data)
-        const id = await data[0].id;
-        console.log(id)
-  
+      const data = await getCartByUser();
+      console.log(data);
+      const id = await data[0].id;
+      console.log(id);
+
       if (localStorage.getItem("cart")) {
-        const localCart = (localStorage.getItem("cart"))
-        const theCart = JSON.parse(localCart)
+        const localCart = localStorage.getItem("cart");
+        const theCart = JSON.parse(localCart);
         for (let i = 0; i < theCart.length; i++) {
-          const carId = theCart[i]
+          const carId = theCart[i];
 
-          const addedCar = await addCarToCart(carId, id)
-          console.log(addedCar, "we added this car to your cart")
+          const addedCar = await addCarToCart(carId, id);
+          console.log(addedCar, "we added this car to your cart");
         }
-        localStorage.removeItem("cart")
+        localStorage.removeItem("cart");
       }
-
-
 
       setLoginMenu(false);
       setError(null);
@@ -64,8 +60,7 @@ const Login = (props) => {
     });
   }
 
-
-  async function changeMenu(){
+  async function changeMenu() {
     setLoginMenu(false);
     setRegisterMenu(true);
   }
@@ -84,34 +79,39 @@ const Login = (props) => {
           <form onSubmit={handleSubmit}>
             <h3>Login</h3>
             <div>
-            <label htmlFor="email">Email: </label>
-            <input
-              id="email"
-              type="email"
-              onChange={(e) =>
-                setLoginInfo({ ...loginInfo, email: e.target.value })
-              }
-              value={loginInfo.email}
-              required
-            /></div>
+              <label htmlFor="email">Email: </label>
+              <input
+                id="email"
+                type="email"
+                onChange={(e) =>
+                  setLoginInfo({ ...loginInfo, email: e.target.value })
+                }
+                value={loginInfo.email}
+                required
+              />
+            </div>
             <br />
-            <div><label htmlFor="password">Password: </label>
-            <input
-              id="password"
-              type="password"
-              onChange={(e) =>
-                setLoginInfo({ ...loginInfo, password: e.target.value })
-              }
-              value={loginInfo.password}
-              required
-            /></div>
+            <div>
+              <label htmlFor="password">Password: </label>
+              <input
+                id="password"
+                type="password"
+                onChange={(e) =>
+                  setLoginInfo({ ...loginInfo, password: e.target.value })
+                }
+                value={loginInfo.password}
+                required
+              />
+            </div>
             {error ? <small className="error">{error}</small> : null}
 
             <br />
             <button className="submitButton SeeMoreDetailsBtn" type="submit">
               SUBMIT
             </button>
-            <button onClick={changeMenu}>Don't have an account? Click here</button>
+            <button onClick={changeMenu}>
+              Don't have an account? Click here
+            </button>
           </form>
         </div>
       </div>
