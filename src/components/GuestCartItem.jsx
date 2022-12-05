@@ -8,9 +8,16 @@ const GuestCartItem  = (props) => {
     console.log(item, typeof item)
 
     async function removeCar() {
-      const response = await deleteCarFromCart(item);
-  
-      !response.error && setItem(false)
+      const localCart = JSON.parse(localStorage.getItem("cart"))
+      const newCart = []
+      for (let index = 0; index < localCart.length; index++) {
+        if (localCart[index] !== theCar.id) {
+          newCart.push(localCart[index])
+        }
+        localStorage.setItem("cart", JSON.stringify(newCart))
+      
+        
+      }
     }
 
     useEffect(()=>{
