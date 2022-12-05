@@ -80,7 +80,7 @@ add_shopping_cart
           
         </>
       ) : (
-        <div> loading the cars... </div>
+        <div> Loading the cars... </div>
       )}
     </div>
   );

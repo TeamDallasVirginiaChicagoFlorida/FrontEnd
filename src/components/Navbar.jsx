@@ -59,6 +59,7 @@ shopping_cart
             setRegisterMenu={setRegisterMenu}
             error={error}
             setError={setError}
+            isLoggedIn={isLoggedIn}
           />
         ) : null}
         {registerMenu ? (

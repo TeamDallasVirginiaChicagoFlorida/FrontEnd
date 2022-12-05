@@ -29,7 +29,7 @@ const Cart_SingleCar = (props) => {
           </span>
           </div>
 </div>
-      ) : <p>Loading...</p>}
+      ) : null}
     </div>
   );
 };

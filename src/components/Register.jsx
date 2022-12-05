@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerUser } from "../api-adapter";
+import { registerUser, getCartByUser, addCarToCart } from "../api-adapter";
 
 const Register = (props) => {
   const setIsLoggedIn = props.setIsLoggedIn;
@@ -28,6 +28,25 @@ const Register = (props) => {
     if (response && response.token) {
       localStorage.setItem("token", response.token);
       setIsLoggedIn(response.token);
+
+      const data = await getCartByUser();
+      console.log(data)
+      const id = await data[0].id;
+      console.log(id)
+
+    if (localStorage.getItem("cart")) {
+      const localCart = (localStorage.getItem("cart"))
+      const theCart = JSON.parse(localCart)
+      for (let i = 0; i < theCart.length; i++) {
+        const carId = theCart[i]
+
+        const addedCar = await addCarToCart(carId, id)
+        console.log(addedCar, "we added this car to your cart")
+      }
+      localStorage.removeItem("cart")
+    }
+
+
       setRegisterMenu(false);
       setError(null);
     } else {
