@@ -18,7 +18,7 @@ const AdminSingleCar = (props) => {
   return (
     <div id="adminSingleCar">
       <div>
-        {car.make} {car.model} {car.year} {car.price}
+        {car.make} {car.model} {car.year} ${car.price}
       </div>
       <button onClick={openEditCarMenu}>Edit Car</button>{" "}
       <button>Remove Car</button>

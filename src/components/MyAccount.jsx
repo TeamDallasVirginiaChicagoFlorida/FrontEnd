@@ -6,12 +6,19 @@ const MyAccount = (props) => {
   const user = props.user;
 
   return (
-    <div id="myAccount">
-      <h1>Your Account:</h1>
-      <p>Email:{user.email}</p>
-      {user.admin ? <p>Account Type: Seller</p> : <p>Account Type: Buyer</p>}
-      <OrderHistory isLoggedIn={isLoggedIn} />
-      {user.admin ? <Admin user={user} /> : null}
+    <div className="myAccount">
+      <div className="topHalf">
+      <div className="AccountInfo">
+        <h2>Your Account:</h2>
+        <p>Email:{user.email}</p>
+        {user.admin ? <p>Account Type: Seller</p> : <p>Account Type: Buyer</p>}
+      </div>
+      <div className="orderHistory">
+        <OrderHistory isLoggedIn={isLoggedIn} />
+      </div>
+      </div>
+      <div>
+      {user.admin ? <Admin user={user} /> : null}</div>
     </div>
   );
 };

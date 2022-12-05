@@ -29,7 +29,7 @@ const Admin = (props) => {
   return (
     <>
     <div id="adminAddCar">
-      <h1>Cars for Sale:</h1>
+      <h2>Cars for Sale:</h2>
       <button onClick={openAddCarMenu}>Sell a Car</button>
       {sellersCars.map((car) => {
         return (
