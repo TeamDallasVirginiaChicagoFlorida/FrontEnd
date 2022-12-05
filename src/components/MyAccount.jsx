@@ -17,7 +17,7 @@ const MyAccount = (props) => {
         <OrderHistory isLoggedIn={isLoggedIn} />
       </div>
       </div>
-      <div>
+      <div className="bottomHalf">
       {user.admin ? <Admin user={user} /> : null}</div>
     </div>
   );

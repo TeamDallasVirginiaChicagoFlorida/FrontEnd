@@ -218,7 +218,7 @@ const EditAdminCar = (props) => {
         </span>
         <br />
 
-        <button className="submitButton" type="submit">
+        <button className="submitButton SeeMoreDetailsBtn" type="submit">
               SUBMIT
             </button>
             

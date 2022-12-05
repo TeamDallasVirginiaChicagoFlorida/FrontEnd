@@ -37,7 +37,7 @@ const GuestCartItem  = (props) => {
             </span>
             Remove From Cart
           </span></div>
-        </>:null}
+        </>:<p>Loading...</p>}
   
       </div></div>
     );

@@ -41,7 +41,7 @@ const SingleCar = (props) => {
       </Link>
       <span onClick={addCar} className="addToCartPlus"><span  className="material-symbols-outlined addToCart">
 add_shopping_cart
-</span> Add to Cart</span></>:null}
+</span> Add to Cart</span></>:<p>Loading...</p>}
      
     </div>
   );

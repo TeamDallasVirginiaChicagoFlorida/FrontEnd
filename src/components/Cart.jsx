@@ -40,21 +40,23 @@ const Cart = (props) => {
                 return <Cart_SingleCar key={item.id} item={item} />;
               })
             : null}
-          <h3>
+          <div className="priceandcheckout"><h3>
             Total Price:{" "}
             {/* {activeCartCars.map((item) => {
               total += item.price;
             })}
             ${parseInt(total, 10)} */}
           </h3>
-          <button className="SeeMoreDetailsBtn Checkout" onClick={finishedSale}><span>Check Out</span></button>
+          
+          <button className="SeeMoreDetailsBtn Checkout" onClick={finishedSale}><span>Check Out</span></button></div>
         </div>
       ) : (
         <div>
           <h1>Your Cart:</h1>
-          {JSON.parse(localStorage.getItem("cart")).map((item)=>{
+          {localStorage.getItem("cart")?  JSON.parse(localStorage.getItem("cart")).map((item)=>{
             return <GuestCartItem item={item}/>
-          })}
+          }): <p>You have no cars in your cart.</p>}
+         
             <h3>Please login or register to checkout! <br/>Your cart will be saved!</h3>
         </div>
       )}

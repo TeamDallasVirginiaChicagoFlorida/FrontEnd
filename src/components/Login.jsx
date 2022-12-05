@@ -96,7 +96,7 @@ const Login = (props) => {
             {error ? <small className="error">{error}</small> : null}
 
             <br />
-            <button className="submitButton" type="submit">
+            <button className="submitButton SeeMoreDetailsBtn" type="submit">
               SUBMIT
             </button>
             <button onClick={changeMenu}>Don't have an account? Click here</button>

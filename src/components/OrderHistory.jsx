@@ -30,7 +30,7 @@ const OrderHistory = (props) => {
               </div>
             );
           })
-        : null}
+        : <p>Loading...</p>}
     </div>
   );
 };

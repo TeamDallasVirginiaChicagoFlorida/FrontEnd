@@ -27,9 +27,22 @@ const SingleCarDetails = (props) => {
   const navigate = useNavigate();
 
   async function addCar() {
-    await addCarToCart(singleCar.id, currentId);
-    navigate("/cart");
-  }
+    if(isLoggedIn){
+    const response = await addCarToCart(singleCar.id, currentId);
+    }
+    else{
+        if(localStorage.getItem("cart")){
+          const holdThisCart = JSON.parse(localStorage.getItem("cart"))
+          if(!holdThisCart.includes(singleCar.id)){
+            holdThisCart.push(singleCar.id)
+            localStorage.setItem("cart", JSON.stringify(holdThisCart))
+          }
+        }else{
+          localStorage.setItem("cart", JSON.stringify([singleCar.id]))
+        }
+      }
+      navigate("/cart");
+    }
 
   return (
     <div id="singleCarDetails">
@@ -42,6 +55,7 @@ const SingleCarDetails = (props) => {
             <h3 className="carTitle">
               {singleCar.make} {singleCar.model} {singleCar.year}{" "}
             </h3>
+            <div className="carbox">
             <img src={singleCar.photo_url} id="singleCarPhoto" />
             <div className="boxDetails">
               <div className="carInfo">
@@ -58,7 +72,7 @@ const SingleCarDetails = (props) => {
                 <div>Condition: {singleCar.new_used} </div>
                 <span onClick={addCar} className="addToCartPlus"><span  className="material-symbols-outlined addToCart">
 add_shopping_cart
-</span> Add to Cart</span>
+</span> Add to Cart</span></div>
               </div>
             </div>
           </div>

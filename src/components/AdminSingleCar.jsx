@@ -17,11 +17,15 @@ const AdminSingleCar = (props) => {
 
   return (
     <div id="adminSingleCar">
-      <div>
-        {car.make} {car.model} {car.year} ${car.price}
-      </div>
-      <button onClick={openEditCarMenu}>Edit Car</button>{" "}
-      <button>Remove Car</button>
+      <div className="adminCarInfo">
+        <img className="tinyimage" src={car.photo_url} /> {car.make} {car.model} {car.year} ${car.price} 
+      
+      <div className="adminButtons"><span className="addToCartPlus" onClick={openEditCarMenu}><span className="material-symbols-outlined">
+edit
+</span> Edit </span>{" "}
+      <span className="addToCartPlus"><span className="material-symbols-outlined">
+delete_forever
+</span> Remove</span></div></div>
     </div>
   );
 };

@@ -29,8 +29,8 @@ const Admin = (props) => {
   return (
     <>
     <div id="adminAddCar">
-      <h2>Cars for Sale:</h2>
-      <button onClick={openAddCarMenu}>Sell a Car</button>
+      <h2>Manage Inventory:</h2>
+      <button className="SeeMoreDetailsBtn" onClick={openAddCarMenu}><span>Sell a Car</span></button>
       {sellersCars.map((car) => {
         return (
             <AdminSingleCar key={car.id} setEditCar={setEditCar} user={user} car={car} editCar={editCar} setCarBeingEdited={setCarBeingEdited}/>
