@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { addCarToCart, logInUser } from "../api-adapter";
+import React, { useState, useEffect } from "react";
+import { addCarToCart, logInUser, getCartByUser } from "../api-adapter";
 
 const Login = (props) => {
   const setIsLoggedIn = props.setIsLoggedIn;
@@ -7,6 +7,8 @@ const Login = (props) => {
   const setError = props.setError;
   const error = props.error;
   const setRegisterMenu = props.setRegisterMenu;
+  const isLoggedIn = props.isLoggedIn
+  const [currentId, setCurrentId] = useState(null)
 
   const [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -18,22 +20,32 @@ const Login = (props) => {
     setError(null);
   }
 
+
   async function handleSubmit(event) {
     event.preventDefault();
     const email = loginInfo.email;
     const password = loginInfo.password;
     const response = await logInUser(email, password);
 
+
     localStorage.removeItem("token");
     if (response && response.token) {
       localStorage.setItem("token", response.token);
       setIsLoggedIn(response.token);
 
+        const data = await getCartByUser();
+        console.log(data)
+        const id = await data[0].id;
+        console.log(id)
+  
       if (localStorage.getItem("cart")) {
-        const theCart = JSON.parse(localStorage.getItem("cart"))
+        const localCart = (localStorage.getItem("cart"))
+        const theCart = JSON.parse(localCart)
         for (let i = 0; i < theCart.length; i++) {
           const carId = theCart[i]
-          addCarToCart(carId)
+
+          const addedCar = await addCarToCart(carId, id)
+          console.log(addedCar, "we added this car to your cart")
         }
         localStorage.removeItem("cart")
       }
