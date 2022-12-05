@@ -10,7 +10,7 @@ const SingleCar = (props) => {
 
 
   async function addCar() {
-    if(isLoggedIn){
+    if(localStorage.getItem("token")){
     const response = await addCarToCart(car.id, currentId);
     !response.error && setCar(false)}
     else{

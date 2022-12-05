@@ -6,6 +6,7 @@ const SingleCarDetails = (props) => {
   const { id } = useParams();
   const [singleCar, setSingleCar] = useState([]);
   const [currentId, setCurrentId] = useState();
+  const isLoggedIn = props.isLoggedIn
   
   useEffect(()=>{
     const fetchData = async()=>{
