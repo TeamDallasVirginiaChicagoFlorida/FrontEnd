@@ -317,12 +317,19 @@ button {
   flex-direction: column;
   align-items: center;
 }
-
+#cart h1,
+#cart h3 {
+  color: black;
+}
+.Checkout {
+  justify-content: center;
+  display: flex;
+}
 #cartSingleCar {
   padding: 10px;
   width: 500px;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.062);
+  background-color: #48392A;
   margin: 2.5px;
   align-items: center;
   justify-content: space-around;
@@ -364,23 +371,24 @@ button {
 .AccountInfo {
   width: 45%;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.062);
+  background-color: #48392A;
   padding: 10px;
   margin: 0;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.565);
+  margin-top: 20px;
 }
 
 .orderHistory {
   width: 45%;
   margin: 0;
-  background-color: rgba(255, 255, 255, 0.062);
+  background-color: #48392A;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.565);
+  margin-top: 20px
 }
 
 #orderHistory {
   display: flex;
   flex-direction: column;
-  
   padding: 10px;
 }
 
@@ -399,7 +407,7 @@ button {
 #adminAddCar {
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.062);
+  background-color: #48392A;
   padding: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.565);
 }
