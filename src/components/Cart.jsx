@@ -41,7 +41,7 @@ const Cart = (props) => {
               })
             : null}
           <div className="priceandcheckout"><h3>
-            Total Price:{" "}
+
             {/* {activeCartCars.map((item) => {
               total += item.price;
             })}
