@@ -25,7 +25,7 @@ const HomePage = (props) => {
   },[])
   return (
     <div id="homePage">
-        <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} setFilteredCars={setFilteredCars} />
+        {/* <Searchbar searchTerm={searchTerm} setSearchTerm={setSearchTerm} setFilteredCars={setFilteredCars} /> */}
         <AllCars allCars = {allCars} isLoggedIn={isLoggedIn}/>
         <FiltersMenu />
   </div>
