@@ -21,8 +21,8 @@ const Cart_SingleCar = (props) => {
           </p>
           <p>${item.price}</p>
 
-          <span className="addToCartPlus">
-            <span className="material-symbols-outlined" onClick={removeCar}>
+          <span className="addToCartPlus" onClick={removeCar}>
+            <span className="material-symbols-outlined" >
               remove_shopping_cart
             </span>
             Remove From Cart

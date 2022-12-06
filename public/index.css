@@ -57,6 +57,7 @@ body,
   align-self: center;
   /* padding-left: 40px;
   padding-right: 40px; */
+  border-bottom:#48392A solid 1px;
 }
 
 #navbuttons {
@@ -160,6 +161,7 @@ button {
 
 .x {
   align-self: flex-end;
+  cursor: pointer;
 }
 
 .x:hover {
