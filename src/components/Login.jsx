@@ -78,8 +78,8 @@ const Login = (props) => {
           </span>
           <form onSubmit={handleSubmit}>
             <h3>Login</h3>
-            <div>
-              <label htmlFor="email">Email: </label>
+            <div id="emailLogin">
+              <label htmlFor="email">Email:</label>
               <input
                 id="email"
                 type="email"
@@ -91,7 +91,7 @@ const Login = (props) => {
               />
             </div>
             <br />
-            <div>
+            <div id="passwordLogin">
               <label htmlFor="password">Password: </label>
               <input
                 id="password"

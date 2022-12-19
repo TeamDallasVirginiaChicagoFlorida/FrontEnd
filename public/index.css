@@ -137,7 +137,14 @@ body,
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
 }
+#emailLogin, #passwordLogin {
+  display: flex;
+  justify-content: center;
 
+}
+#emailLogin {
+  margin-top: 10px;
+}
 .popupMenu {
   background-color: #d9d9d9;
   color: black;
@@ -233,7 +240,6 @@ button {
   margin-top: 5px;
   align-self: center;
 }
-
 #singleCar {
   display: flex;
   flex-direction: column;
@@ -244,6 +250,7 @@ button {
   min-width: 250px;
   align-items: center;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.565);
+  border-radius: 5%;
 }
 
 #AllCars {
@@ -257,6 +264,7 @@ button {
 .AllCarsPage {
   height: 125px;
   width: 200px;
+  border-radius: 5%;
 }
 #singleCar h2 {
   font-size: 15px;
