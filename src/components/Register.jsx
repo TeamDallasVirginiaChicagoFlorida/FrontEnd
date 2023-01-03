@@ -72,8 +72,8 @@ const Register = (props) => {
             close
           </span>
           <form onSubmit={handleSubmit}>
-            <h3>Register</h3>
-            <div><label htmlFor="email">Email: </label>
+            <h3 id="regHeader">Register</h3>
+            <div id="emailRegPopUp"><label htmlFor="email">Email: </label>
             <input
               id="email"
               type="email"
@@ -83,8 +83,7 @@ const Register = (props) => {
               value={registerInfo.email}
               required
             /></div>
-            <br />
-            <div><label htmlFor="password">Password: </label>
+            <div id="passwordRegPage"><label htmlFor="password">Password: </label>
             <input
               id="password"
               type="password"
@@ -95,7 +94,7 @@ const Register = (props) => {
               required
             /></div>
             <br/>
-            <div><label htmlFor="account_type">Account Type: </label>
+            <div id="accountTypeReg"><label htmlFor="account_type">Account Type: </label>
             <select
               id="account_type"
               onChange={(e) =>
@@ -108,7 +107,7 @@ const Register = (props) => {
             {error ? <small className="error">{error}</small> : null}
 
             <br />
-            <button className="submitButton SeeMoreDetailsBtn" type="submit">
+            <button id="submitLoginFormBtn" className="submitButton SeeMoreDetailsBtn" type="submit">
               SUBMIT
             </button>
           </form>

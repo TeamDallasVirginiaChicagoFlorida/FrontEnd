@@ -77,7 +77,7 @@ const Login = (props) => {
             close
           </span>
           <form onSubmit={handleSubmit}>
-            <h3>Login</h3>
+            <h3 id="loginHeader">Login</h3>
             <div id="emailLogin">
               <label htmlFor="email">Email:</label>
               <input
@@ -90,7 +90,6 @@ const Login = (props) => {
                 required
               />
             </div>
-            <br />
             <div id="passwordLogin">
               <label htmlFor="password">Password: </label>
               <input
@@ -106,10 +105,10 @@ const Login = (props) => {
             {error ? <small className="error">{error}</small> : null}
 
             <br />
-            <button className="submitButton SeeMoreDetailsBtn" type="submit">
+            <button id="submitLoginFormBtn" className="submitButton SeeMoreDetailsBtn" type="submit">
               SUBMIT
             </button>
-            <button onClick={changeMenu}>
+            <button id="noAccount" onClick={changeMenu}>
               Don't have an account? Click here
             </button>
           </form>

@@ -137,13 +137,27 @@ body,
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
 }
-#emailLogin, #passwordLogin {
+#emailLogin {
   display: flex;
   justify-content: center;
-
+}
+#submitLoginFormBtn {
+  margin-bottom: 6px;
+}
+#email {
+  margin-left: 35px;
+}
+#password {
+  margin-left: 5px;
+}
+#submitLoginFormBtn:hover {
+  font-weight: bolder;
+  background-color: lightgray;
 }
 #emailLogin {
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
 }
 .popupMenu {
   background-color: #d9d9d9;
@@ -156,7 +170,27 @@ body,
   outline: none;
   border: white 1px solid;
 }
+#noAccount {
+  cursor: pointer;
+}
+#passwordRegPage, #passwordLogin {
+  display: flex;
+  justify-content: center;
+}
+#regHeader, #loginHeader {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+#accountTypeReg {
+  display: flex;
+  justify-content: center;
+}
+#emailRegPopUp {
+  justify-content: center;
+  display: flex;
+  margin-bottom: 6px;
 
+}
 .popupMenu form {
   display: flex;
   flex-direction: column;
