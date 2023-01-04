@@ -401,7 +401,11 @@ button {
   display: flex;
   flex-direction: column;
 }
-
+#cartMessage {
+  color: black;
+  justify-content: center;
+  display: flex;
+}
 #cart h3 {
   align-self: center;
   display: flex;

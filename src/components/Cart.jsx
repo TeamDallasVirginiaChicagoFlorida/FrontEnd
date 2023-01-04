@@ -52,12 +52,12 @@ const Cart = (props) => {
         </div>
       ) : (
         <div>
-          <h1>Your Cart:</h1>
+          <h1>My Cart:</h1>
           {localStorage.getItem("cart")?  JSON.parse(localStorage.getItem("cart")).map((item)=>{
             return <GuestCartItem item={item}/>
           }): <p>You have no cars in your cart.</p>}
          
-            <h3>Please login or register to checkout! <br/>Your cart will be saved!</h3>
+            <p id="cartMessage">Please login or register to checkout, your cart will be saved!</p>
         </div>
       )}
     </div>
